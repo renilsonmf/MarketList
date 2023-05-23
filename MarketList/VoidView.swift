@@ -14,9 +14,10 @@ struct VoidView: View {
                 .resizable()
                 .frame(width: 73, height: 73, alignment: .center)
             Text("Sua lista está vazia!")
-                .font(Font.custom("Roboto-Bold", size: 24))
-        }.padding()
-        
+                .font(Font.custom("Roboto-Regular", size: 24))
+        }
+        .padding()
+        .background(.gray)
     }
 }
 
