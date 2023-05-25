@@ -17,7 +17,7 @@ struct VoidView: View {
                 .font(Font.custom("Roboto-Regular", size: 24))
         }
         .padding()
-        .background(.gray)
+        .background(Color(hex: "#F5F5F5"))
     }
 }
 
