@@ -31,6 +31,7 @@
 		52A6102B2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */; };
 		F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */; };
 		F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */; };
+		F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductMarketView.swift; sourceTree = "<group>"; };
 		F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				52A610132A1C39F60035D12C /* Preview Content */,
 				F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */,
 				F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */,
+				F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */,
 			);
 			path = MarketList;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				52A610102A1C39F30035D12C /* AddShoppingView.swift in Sources */,
 				52A6100E2A1C39F30035D12C /* MarketListApp.swift in Sources */,
 				F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */,
+				F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */,
 				5256BBD12A1C3C9C00B10137 /* VoidView.swift in Sources */,
 				5256BBCD2A1C3C5D00B10137 /* ListShoppingView.swift in Sources */,
 				F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */,

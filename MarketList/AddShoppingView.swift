@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddShoppingView: View {
     var body: some View {
-        VoidView()
+        Text("Add shopping view")
     }
 }
 
