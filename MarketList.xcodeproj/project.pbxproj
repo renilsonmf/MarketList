@@ -67,7 +67,7 @@
 		5256BBDF2A1C416F00B10137 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		5256BBE02A1C416F00B10137 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		5256BBE12A1C416F00B10137 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		5256BBEF2A1C43FA00B10137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5256BBEF2A1C43FA00B10137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A6100A2A1C39F30035D12C /* MarketList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarketList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A6100D2A1C39F30035D12C /* MarketListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListApp.swift; sourceTree = "<group>"; };
 		52A6100F2A1C39F30035D12C /* AddShoppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShoppingView.swift; sourceTree = "<group>"; };
@@ -128,6 +128,50 @@
 			path = Roboto;
 			sourceTree = "<group>";
 		};
+		529AB8CF2A21675B00C46A5C /* AddShopping */ = {
+			isa = PBXGroup;
+			children = (
+				52A6100F2A1C39F30035D12C /* AddShoppingView.swift */,
+			);
+			path = AddShopping;
+			sourceTree = "<group>";
+		};
+		529AB8D02A2167D700C46A5C /* ListShopping */ = {
+			isa = PBXGroup;
+			children = (
+				F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */,
+				5256BBD02A1C3C9C00B10137 /* VoidView.swift */,
+				5256BBCC2A1C3C5D00B10137 /* ListShoppingView.swift */,
+			);
+			path = ListShopping;
+			sourceTree = "<group>";
+		};
+		529AB8D12A21680E00C46A5C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		529AB8D22A21681E00C46A5C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		529AB8D32A21683D00C46A5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5256BBEF2A1C43FA00B10137 /* Info.plist */,
+				52A6100D2A1C39F30035D12C /* MarketListApp.swift */,
+				52A610112A1C39F60035D12C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		52A610012A1C39F30035D12C = {
 			isa = PBXGroup;
 			children = (
@@ -151,17 +195,13 @@
 		52A6100C2A1C39F30035D12C /* MarketList */ = {
 			isa = PBXGroup;
 			children = (
-				5256BBEF2A1C43FA00B10137 /* Info.plist */,
+				529AB8D32A21683D00C46A5C /* Resources */,
+				529AB8D22A21681E00C46A5C /* Utils */,
+				529AB8D12A21680E00C46A5C /* Main */,
+				529AB8CF2A21675B00C46A5C /* AddShopping */,
+				529AB8D02A2167D700C46A5C /* ListShopping */,
 				5256BBD42A1C416F00B10137 /* Roboto */,
-				5256BBD02A1C3C9C00B10137 /* VoidView.swift */,
-				5256BBCC2A1C3C5D00B10137 /* ListShoppingView.swift */,
-				52A6100F2A1C39F30035D12C /* AddShoppingView.swift */,
-				52A6100D2A1C39F30035D12C /* MarketListApp.swift */,
-				52A610112A1C39F60035D12C /* Assets.xcassets */,
 				52A610132A1C39F60035D12C /* Preview Content */,
-				F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */,
-				F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */,
-				F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */,
 			);
 			path = MarketList;
 			sourceTree = "<group>";
