@@ -165,7 +165,6 @@
 		529AB8D32A21683D00C46A5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5256BBEF2A1C43FA00B10137 /* Info.plist */,
 				52A6100D2A1C39F30035D12C /* MarketListApp.swift */,
 				52A610112A1C39F60035D12C /* Assets.xcassets */,
 			);
@@ -195,6 +194,7 @@
 		52A6100C2A1C39F30035D12C /* MarketList */ = {
 			isa = PBXGroup;
 			children = (
+				5256BBEF2A1C43FA00B10137 /* Info.plist */,
 				529AB8D32A21683D00C46A5C /* Resources */,
 				529AB8D22A21681E00C46A5C /* Utils */,
 				529AB8D12A21680E00C46A5C /* Main */,
