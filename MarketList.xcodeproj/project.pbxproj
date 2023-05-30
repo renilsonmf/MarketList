@@ -32,6 +32,7 @@
 		F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */; };
 		F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */; };
 		F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */; };
+		F27FD71B2A257D140018F480 /* CellProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FD71A2A257D140018F480 /* CellProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductMarketView.swift; sourceTree = "<group>"; };
 		F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTabBarView.swift; sourceTree = "<group>"; };
+		F27FD71A2A257D140018F480 /* CellProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,14 +196,13 @@
 		52A6100C2A1C39F30035D12C /* MarketList */ = {
 			isa = PBXGroup;
 			children = (
+				5256BBD42A1C416F00B10137 /* Roboto */,
+				52A610132A1C39F60035D12C /* Preview Content */,
+				F27FD7192A257CEE0018F480 /* View */,
+				F27FD7182A257CE60018F480 /* Model */,
 				5256BBEF2A1C43FA00B10137 /* Info.plist */,
 				529AB8D32A21683D00C46A5C /* Resources */,
 				529AB8D22A21681E00C46A5C /* Utils */,
-				529AB8D12A21680E00C46A5C /* Main */,
-				529AB8CF2A21675B00C46A5C /* AddShopping */,
-				529AB8D02A2167D700C46A5C /* ListShopping */,
-				5256BBD42A1C416F00B10137 /* Roboto */,
-				52A610132A1C39F60035D12C /* Preview Content */,
 			);
 			path = MarketList;
 			sourceTree = "<group>";
@@ -229,6 +230,24 @@
 				52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */,
 			);
 			path = MarketListUITests;
+			sourceTree = "<group>";
+		};
+		F27FD7182A257CE60018F480 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F27FD71A2A257D140018F480 /* CellProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F27FD7192A257CEE0018F480 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				529AB8D12A21680E00C46A5C /* Main */,
+				529AB8CF2A21675B00C46A5C /* AddShopping */,
+				529AB8D02A2167D700C46A5C /* ListShopping */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +396,7 @@
 				52A610102A1C39F30035D12C /* AddShoppingView.swift in Sources */,
 				52A6100E2A1C39F30035D12C /* MarketListApp.swift in Sources */,
 				F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */,
+				F27FD71B2A257D140018F480 /* CellProductModel.swift in Sources */,
 				F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */,
 				5256BBD12A1C3C9C00B10137 /* VoidView.swift in Sources */,
 				5256BBCD2A1C3C5D00B10137 /* ListShoppingView.swift in Sources */,

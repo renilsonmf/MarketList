@@ -10,6 +10,13 @@ import SwiftUI
 struct CellProductMarketView: View {
     @State var isChecked = false
     @State var image: String = "Unchecked"
+	var name: String
+	var quantity: Int
+
+	init(name: String, quantity: Int) {
+		self.name = name
+		self.quantity = quantity
+	}
 
     var body: some View {
         HStack {
@@ -17,9 +24,9 @@ struct CellProductMarketView: View {
                 alignment: .leading,
                 spacing: 6
             ) {
-                Text("Acucar")
+                Text(name)
                     .fontWeight(.bold)
-                Text("Hello")
+                Text("\(quantity) unidades")
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
             }
@@ -34,7 +41,7 @@ struct CellProductMarketView: View {
         .background(Color(hex: "#F5F5F5"))
         .cornerRadius(5)
     }
-    
+
     func action() {
         isChecked.toggle()
         image = isChecked ? "Checked" : "Unchecked"
@@ -43,7 +50,7 @@ struct CellProductMarketView: View {
 
 struct CellProductMarketView_Previews: PreviewProvider {
     static var previews: some View {
-        CellProductMarketView()
+		CellProductMarketView(name: "Renilson", quantity: 5)
             .previewLayout(.sizeThatFits)
     }
 }
