@@ -10,8 +10,33 @@ import Foundation
 import SwiftUI
 
 struct ListShoppingView: View {
-	var list: [CellProductModel] = listMock
+    
+    @Binding var list: [CellProductModel]
 
+    var listView: some View {
+        List {
+            ForEach(list) { item in
+                CellProductMarketView(
+                    name: item.name,
+                    quantity: item.quantity
+                )
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
+            }
+        }
+        .buttonStyle(.plain)
+        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
+        .listStyle(.plain)
+    }
+    
+    var voidView: some View {
+        VStack {
+            Spacer()
+            VoidView()
+            Spacer()
+        }
+    }
+    
 	var body: some View {
 		VStack {
 			Text("Lista de compras")
@@ -24,27 +49,13 @@ struct ListShoppingView: View {
 				.font(Font.custom("Roboto-Regular", size: 16))
 				.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
 				.foregroundColor(Color(hex: "#9A9C9E"))
-
-			if list.isEmpty {
-				Spacer()
-				VoidView()
-				Spacer()
-			} else {
-				List {
-					ForEach(listMock) { item in
-						CellProductMarketView(
-							name: item.name,
-							quantity: item.quantity
-						)
-						.listRowSeparator(.hidden)
-						.listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
-					}
-				}
-				.buttonStyle(.plain)
-				.padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
-				.listStyle(.plain)
-			}
-
+            
+            if list.isEmpty {
+                voidView
+            } else {
+                listView
+            }
+            
 			Button(action: cleanList) {
 				Text("Limpar lista")
 					.foregroundColor(Color.white)
@@ -59,12 +70,12 @@ struct ListShoppingView: View {
 	}
 
 	func cleanList() {
-		print("Apagar")
+        list.removeAll()
 	}
 }
 
 struct ListShoppingView_Previews: PreviewProvider {
 	static var previews: some View {
-		ListShoppingView()
+        ListShoppingView(list: .constant(listMock))
 	}
 }

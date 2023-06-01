@@ -18,5 +18,9 @@ let listMock = [
 /*
 
  Retirar interação das bordas dos botões
-
+ Apresentar um alert quando salvar
+ validação lista vazia
+ apagar item unico
+ animação botões
+ Usar combine para alguma coisa
  */

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MarketTabBarView: View {
     @State var selectedTab = 0
+    @State private var list: [CellProductModel] = []
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor.systemGray4
@@ -16,13 +17,13 @@ struct MarketTabBarView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            AddShoppingView()
+            AddShoppingView(list: $list)
                 .tabItem {
                     Image(systemName: "plus")
                     Text("Adicionar")
                 }
             
-            ListShoppingView()
+            ListShoppingView(list: $list)
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Lista de compras")

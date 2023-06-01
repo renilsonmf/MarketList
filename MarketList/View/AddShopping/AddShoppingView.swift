@@ -11,7 +11,8 @@ struct AddShoppingView: View {
     
     @State var productNameTextField: String = ""
     @State var productQuantity: Int = 0
-    
+    @Binding var list: [CellProductModel]
+        
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             Image("supermarket")
@@ -26,6 +27,7 @@ struct AddShoppingView: View {
             Stepper(value: $productQuantity, in: 0...100) {
                     Text("Quantidade = \(productQuantity)")
                 }
+            
 
             Button(action: didTapSave) {
                 Text("Salvar")
@@ -41,12 +43,12 @@ struct AddShoppingView: View {
     }
     
     private func didTapSave() {
-        print("deu bom")
+        list.append(CellProductModel(name: productNameTextField, quantity: productQuantity))
     }
 }
 
 struct AddShoppingView_Previews: PreviewProvider {
     static var previews: some View {
-        AddShoppingView()
+        AddShoppingView(list: .constant(listMock))
     }
 }
