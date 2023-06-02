@@ -20,5 +20,6 @@ let listMock = [
  Animação botões - Lottie
  Usar combine para alguma coisa
  Tratamento para DarkMode
-Persistência de dados
+ Persistência de dados - refatoração e clean code
+ Sugestões de produtos
  */
