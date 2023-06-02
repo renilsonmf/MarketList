@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct ListShoppingView: View {
     
@@ -13,7 +14,7 @@ struct ListShoppingView: View {
 
     var listView: some View {
         List {
-            ForEach(list) { item in
+            ForEach(getCellProductList()) { item in
                 CellProductMarketView(
                     name: item.name,
                     quantity: item.quantity
@@ -49,7 +50,7 @@ struct ListShoppingView: View {
 				.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
 				.foregroundColor(Color(hex: "#9A9C9E"))
             
-            if list.isEmpty {
+            if getCellProductList().isEmpty {
                 voidView
             } else {
                 listView
@@ -64,7 +65,7 @@ struct ListShoppingView: View {
 			.background(Color(hex: "#BE6161"))
 			.cornerRadius(5)
 			.padding()
-			.opacity(list.isEmpty ? 0 : 1)
+			.opacity(getCellProductList().isEmpty ? 0 : 1)
 		}
 	}
 
@@ -74,6 +75,28 @@ struct ListShoppingView: View {
 
 	func cleanList() {
         list.removeAll()
+	}
+
+	func getCellProductList() -> [CellProductModel] {
+		do {
+			let realm = try Realm()
+			let objects = realm.objects(CellProductObject.self)
+
+			var cellProducts: [CellProductModel] = []
+			for object in objects {
+				let cellProduct = CellProductModel(
+						name: object.name,
+						quantity: object.quantity
+				)
+				cellProducts.append(cellProduct)
+			}
+
+			return cellProducts
+		} catch {
+			print("Erro ao recuperar a lista de objetos: \(error)")
+		}
+
+		return []
 	}
 }
 

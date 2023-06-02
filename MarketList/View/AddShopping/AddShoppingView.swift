@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddShoppingView: View {
     @State var productNameTextField: String = ""
@@ -51,11 +52,32 @@ struct AddShoppingView: View {
 			showAlert = true
 			titleAlert = "Preencha todos os campos!"
 		} else {
-			list.append(CellProductModel(name: productNameTextField, quantity: productQuantity))
-			titleAlert = "Item adicionado!"
-			showAlert = true
+			let item = CellProductModel(name: productNameTextField, quantity: productQuantity)
+			saveItem(item)
 		}
     }
+
+	private func saveItem(_ item: CellProductModel) {
+		do {
+			let realm = try Realm()
+			let object = CellProductObject()
+			object.id = item.id.uuidString
+			object.name = item.name
+			object.quantity = item.quantity
+
+			try realm.write {
+				realm.add(object)
+			}
+
+			list.append(item)
+			titleAlert = "Item adicionado!"
+			showAlert = true
+		} catch {
+			titleAlert = "Ocorreu um erro inesperado ! 😞"
+			showAlert = true
+			print("Erro ao salvar o objeto: \(error)")
+		}
+	}
 }
 
 struct AddShoppingView_Previews: PreviewProvider {

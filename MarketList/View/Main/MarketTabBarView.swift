@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MarketTabBarView: View {
     @State var selectedTab = 0
     @State private var list: [CellProductModel] = []
-    
+
     init() {
         UITabBar.appearance().backgroundColor = UIColor.systemGray4
     }

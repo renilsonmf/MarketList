@@ -17,9 +17,8 @@ let listMock = [
 
 /*
  Retirar interação das bordas dos botões
- Apagar item unico. E a seleção de itens?
- Animação botões
+ Animação botões - Lottie
  Usar combine para alguma coisa
  Tratamento para DarkMode
- User Defaults.
+Persistência de dados
  */
