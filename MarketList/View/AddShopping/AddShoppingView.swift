@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AddShoppingView: View {
-    
     @State var productNameTextField: String = ""
     @State var productQuantity: Int = 0
+	@State var showAlert = false
+	@State var titleAlert = ""
     @Binding var list: [CellProductModel]
         
     var body: some View {
@@ -34,6 +35,9 @@ struct AddShoppingView: View {
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color.white)
             }
+			.alert(isPresented: $showAlert) {
+				Alert(title: Text(titleAlert))
+			}
             .frame(height: 48)
             .background(Color(hex: "#8EA491"))
             .cornerRadius(5)
@@ -42,8 +46,15 @@ struct AddShoppingView: View {
         }.padding()
     }
     
-    private func didTapSave() {
-        list.append(CellProductModel(name: productNameTextField, quantity: productQuantity))
+	private func didTapSave() {
+		if productNameTextField.isEmpty || productQuantity == 0 {
+			showAlert = true
+			titleAlert = "Preencha todos os campos!"
+		} else {
+			list.append(CellProductModel(name: productNameTextField, quantity: productQuantity))
+			titleAlert = "Item adicionado!"
+			showAlert = true
+		}
     }
 }
 

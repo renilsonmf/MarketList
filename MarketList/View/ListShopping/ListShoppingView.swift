@@ -5,8 +5,6 @@
 //  Created by Renilson Moreira on 22/05/23.
 //
 
-import Foundation
-
 import SwiftUI
 
 struct ListShoppingView: View {
@@ -23,6 +21,7 @@ struct ListShoppingView: View {
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
             }
+			.onDelete(perform: deleteItem)
         }
         .buttonStyle(.plain)
         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
@@ -67,6 +66,10 @@ struct ListShoppingView: View {
 			.padding()
 			.opacity(list.isEmpty ? 0 : 1)
 		}
+	}
+
+	func deleteItem(_ index: IndexSet) {
+		list.remove(atOffsets: index)
 	}
 
 	func cleanList() {
