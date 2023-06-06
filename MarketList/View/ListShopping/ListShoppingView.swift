@@ -9,9 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct ListShoppingView: View {
-    
-    @Binding var list: [CellProductModel]
-
     var listView: some View {
         List {
             ForEach(getCellProductList()) { item in
@@ -70,11 +67,28 @@ struct ListShoppingView: View {
 	}
 
 	func deleteItem(_ index: IndexSet) {
-		list.remove(atOffsets: index)
+		guard let indexInt = index.first else { return }
+
+		do {
+			let realm = try Realm()
+			let objects = realm.objects(CellProductObject.self)
+			try realm.write {
+				realm.delete(objects[indexInt])
+			}
+		} catch {
+			print("Erro ao deletar lista de objetos: \(error)")
+		}
 	}
 
 	func cleanList() {
-        list.removeAll()
+		do {
+			let realm = try Realm()
+			try realm.write {
+				realm.deleteAll()
+			}
+		} catch {
+			print("Erro ao deletar lista de objetos: \(error)")
+		}
 	}
 
 	func getCellProductList() -> [CellProductModel] {
@@ -102,6 +116,6 @@ struct ListShoppingView: View {
 
 struct ListShoppingView_Previews: PreviewProvider {
 	static var previews: some View {
-        ListShoppingView(list: .constant(listMock))
+        ListShoppingView()
 	}
 }

@@ -13,8 +13,7 @@ struct AddShoppingView: View {
     @State var productQuantity: Int = 0
 	@State var showAlert = false
 	@State var titleAlert = ""
-    @Binding var list: [CellProductModel]
-        
+
     var body: some View {
         VStack(alignment: .center, spacing: 25) {
             Image("supermarket")
@@ -69,7 +68,6 @@ struct AddShoppingView: View {
 				realm.add(object)
 			}
 
-			list.append(item)
 			titleAlert = "Item adicionado!"
 			showAlert = true
 		} catch {
@@ -82,6 +80,6 @@ struct AddShoppingView: View {
 
 struct AddShoppingView_Previews: PreviewProvider {
     static var previews: some View {
-        AddShoppingView(list: .constant(listMock))
+        AddShoppingView()
     }
 }

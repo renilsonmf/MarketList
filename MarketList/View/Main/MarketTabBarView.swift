@@ -10,7 +10,6 @@ import RealmSwift
 
 struct MarketTabBarView: View {
     @State var selectedTab = 0
-    @State private var list: [CellProductModel] = []
 
     init() {
         UITabBar.appearance().backgroundColor = UIColor.systemGray4
@@ -18,13 +17,13 @@ struct MarketTabBarView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            AddShoppingView(list: $list)
+            AddShoppingView()
                 .tabItem {
                     Image(systemName: "plus")
                     Text("Adicionar")
                 }
             
-            ListShoppingView(list: $list)
+            ListShoppingView()
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Lista de compras")

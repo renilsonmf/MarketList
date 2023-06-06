@@ -22,4 +22,7 @@ let listMock = [
  Tratamento para DarkMode
  Persistência de dados - refatoração e clean code
  Sugestões de produtos
- */
+ Zerar depois de adicionar produto
+ Editar produto
+ getList() ser @State para recarregar a view com mudanças
+*/
