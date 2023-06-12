@@ -10,3 +10,14 @@ final class CellProductObject: Object, Identifiable {
 		return "id"
 	}
 }
+
+
+
+/*
+ Retirar interação das bordas dos botões
+ Animação botões - Lottie
+ Usar combine para alguma coisa
+ Tratamento para DarkMode
+ Sugestões de produtos
+ Editar produto
+*/
