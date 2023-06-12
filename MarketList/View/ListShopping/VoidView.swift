@@ -12,12 +12,12 @@ struct VoidView: View {
         VStack {
             Image("cart-supermarket")
                 .resizable()
-                .frame(width: 73, height: 73, alignment: .center)
+                .frame(width: 140, height: 140, alignment: .center)
             Text("Sua lista está vazia!")
-                .font(Font.custom("Roboto-Regular", size: 24))
+                .font(Font.custom("Roboto-Italic", size: 24))
+                .foregroundColor(Color(hex: "#5F266D"))
         }
         .padding()
-        .background(Color(hex: "#F5F5F5"))
     }
 }
 

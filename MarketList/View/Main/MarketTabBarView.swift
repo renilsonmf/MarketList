@@ -29,6 +29,7 @@ struct MarketTabBarView: View {
                     Text("Lista de compras")
                 }
         }
+        .tint(.black)
     }
 }
 

@@ -18,4 +18,5 @@ final class CellProductObject: Object, Identifiable {
  Usar combine para alguma coisa
  Sugestões de produtos
  Editar produto (Criar prototipo)
+ Fixar fontes ( não esta funcionando )
 */
