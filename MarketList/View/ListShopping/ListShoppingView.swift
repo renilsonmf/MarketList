@@ -7,11 +7,21 @@
 
 import SwiftUI
 import RealmSwift
+import Realm
+import Foundation
 
 struct ListShoppingView: View {
+    
+    /// Propriedade do realm que funciona como um @State.
+    /// Fica observando o banco e qualquer alteração que ocorrer a view é recarregada.
+    /// Para utilizar o @ObservedResults sem definir uma ordem, basta criar a variavel dessa forma:
+    /// @ObservedResults(CellProductObject.self) var listViewModel
+
+    @ObservedResults(CellProductObject.self) var listViewModel
+    
     var listView: some View {
         List {
-            ForEach(getCellProductList()) { item in
+            ForEach(listViewModel) { item in
                 CellProductMarketView(
                     name: item.name,
                     quantity: item.quantity
@@ -47,7 +57,7 @@ struct ListShoppingView: View {
 				.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
 				.foregroundColor(Color(hex: "#9A9C9E"))
             
-            if getCellProductList().isEmpty {
+            if listViewModel.isEmpty {
                 voidView
             } else {
                 listView
@@ -62,22 +72,12 @@ struct ListShoppingView: View {
 			.background(Color(hex: "#BE6161"))
 			.cornerRadius(5)
 			.padding()
-			.opacity(getCellProductList().isEmpty ? 0 : 1)
+            .opacity(listViewModel.isEmpty ? 0 : 1)
 		}
 	}
 
 	func deleteItem(_ index: IndexSet) {
-		guard let indexInt = index.first else { return }
-
-		do {
-			let realm = try Realm()
-			let objects = realm.objects(CellProductObject.self)
-			try realm.write {
-				realm.delete(objects[indexInt])
-			}
-		} catch {
-			print("Erro ao deletar lista de objetos: \(error)")
-		}
+        $listViewModel.remove(atOffsets: index)
 	}
 
 	func cleanList() {
@@ -90,28 +90,6 @@ struct ListShoppingView: View {
 			print("Erro ao deletar lista de objetos: \(error)")
 		}
 	}
-
-	func getCellProductList() -> [CellProductModel] {
-		do {
-			let realm = try Realm()
-			let objects = realm.objects(CellProductObject.self)
-
-			var cellProducts: [CellProductModel] = []
-			for object in objects {
-				let cellProduct = CellProductModel(
-						name: object.name,
-						quantity: object.quantity
-				)
-				cellProducts.append(cellProduct)
-			}
-
-			return cellProducts
-		} catch {
-			print("Erro ao recuperar a lista de objetos: \(error)")
-		}
-
-		return []
-	}
 }
 
 struct ListShoppingView_Previews: PreviewProvider {
@@ -119,3 +97,7 @@ struct ListShoppingView_Previews: PreviewProvider {
         ListShoppingView()
 	}
 }
+
+
+
+

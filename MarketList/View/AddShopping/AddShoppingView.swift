@@ -51,18 +51,16 @@ struct AddShoppingView: View {
 			showAlert = true
 			titleAlert = "Preencha todos os campos!"
 		} else {
-			let item = CellProductModel(name: productNameTextField, quantity: productQuantity)
-			saveItem(item)
+            saveItem()
 		}
     }
 
-	private func saveItem(_ item: CellProductModel) {
+	private func saveItem() {
 		do {
 			let realm = try Realm()
 			let object = CellProductObject()
-			object.id = item.id.uuidString
-			object.name = item.name
-			object.quantity = item.quantity
+			object.name = productNameTextField
+			object.quantity = productQuantity
 
 			try realm.write {
 				realm.add(object)
@@ -70,6 +68,8 @@ struct AddShoppingView: View {
 
 			titleAlert = "Item adicionado!"
 			showAlert = true
+            productNameTextField = ""
+            productQuantity = 0
 		} catch {
 			titleAlert = "Ocorreu um erro inesperado ! 😞"
 			showAlert = true

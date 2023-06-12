@@ -31,11 +31,10 @@
 		52A6102B2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */; };
 		F2446DA12A297CFD0098CFC5 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F2446DA02A297CFD0098CFC5 /* Realm */; };
 		F2446DA32A297CFD0098CFC5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2446DA22A297CFD0098CFC5 /* RealmSwift */; };
-		F2446DA52A297DC10098CFC5 /* RealmFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2446DA42A297DC10098CFC5 /* RealmFile.swift */; };
+		F2446DA52A297DC10098CFC5 /* CellProductObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2446DA42A297DC10098CFC5 /* CellProductObject.swift */; };
 		F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */; };
 		F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */; };
 		F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */; };
-		F27FD71B2A257D140018F480 /* CellProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FD71A2A257D140018F480 /* CellProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,11 +81,10 @@
 		52A610242A1C39F70035D12C /* MarketListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarketListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A610282A1C39F70035D12C /* MarketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListUITests.swift; sourceTree = "<group>"; };
 		52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F2446DA42A297DC10098CFC5 /* RealmFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFile.swift; sourceTree = "<group>"; };
+		F2446DA42A297DC10098CFC5 /* CellProductObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductObject.swift; sourceTree = "<group>"; };
 		F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductMarketView.swift; sourceTree = "<group>"; };
 		F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTabBarView.swift; sourceTree = "<group>"; };
-		F27FD71A2A257D140018F480 /* CellProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +239,7 @@
 		F27FD7182A257CE60018F480 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F27FD71A2A257D140018F480 /* CellProductModel.swift */,
-				F2446DA42A297DC10098CFC5 /* RealmFile.swift */,
+				F2446DA42A297DC10098CFC5 /* CellProductObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -410,12 +407,11 @@
 				52A610102A1C39F30035D12C /* AddShoppingView.swift in Sources */,
 				52A6100E2A1C39F30035D12C /* MarketListApp.swift in Sources */,
 				F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */,
-				F27FD71B2A257D140018F480 /* CellProductModel.swift in Sources */,
 				F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */,
 				5256BBD12A1C3C9C00B10137 /* VoidView.swift in Sources */,
 				5256BBCD2A1C3C5D00B10137 /* ListShoppingView.swift in Sources */,
 				F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */,
-				F2446DA52A297DC10098CFC5 /* RealmFile.swift in Sources */,
+				F2446DA52A297DC10098CFC5 /* CellProductObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
