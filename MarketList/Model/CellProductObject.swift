@@ -13,6 +13,7 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
+ Adicionar campo checked no realm para controlar quando o usuario marcar que o item foi comprado.
  Criar componente para os botoes
  Retirar interação das bordas dos botões
  Animação botões - Lottie
