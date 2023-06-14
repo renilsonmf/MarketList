@@ -13,6 +13,7 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
+ Criar componente para os botoes
  Retirar interação das bordas dos botões
  Animação botões - Lottie
  Usar combine para alguma coisa
