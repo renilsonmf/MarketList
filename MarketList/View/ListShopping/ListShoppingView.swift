@@ -11,12 +11,8 @@ import Realm
 import Foundation
 
 struct ListShoppingView: View {
-    
-    /// Propriedade do realm que funciona como um @State.
-    /// Fica observando o banco e qualquer alteração que ocorrer a view é recarregada.
-    /// Para utilizar o @ObservedResults sem definir uma ordem, basta criar a variavel dessa forma:
-    /// @ObservedResults(CellProductObject.self) var listViewModel
-
+    @State private var itemSelected: CellProductObject = CellProductObject()
+    @State private var isModalVisible = false
     @ObservedResults(CellProductObject.self) var listViewModel
     
     var listView: some View {
@@ -28,12 +24,24 @@ struct ListShoppingView: View {
                 )
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
+                .onTapGesture {
+                    itemSelected = item
+                    openEditModal(item: item)
+                    isModalVisible = true
+                }
             }
 			.onDelete(perform: deleteItem)
         }
         .buttonStyle(.plain)
         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
         .listStyle(.plain)
+        //.blur(radius: isModalVisible ? 10 : 0)
+        .overlay {
+            CustomModalEditView(item: $itemSelected)
+                .cornerRadius(8)
+                .frame(width: 300, height: 260)
+                .opacity(isModalVisible ? 1 : 0)
+        }
     }
     
     var voidView: some View {
@@ -45,17 +53,18 @@ struct ListShoppingView: View {
     }
     
 	var body: some View {
-		VStack {
-			Text("Lista de compras")
-				.frame(maxWidth: .infinity, alignment: .leading)
-				.font(Font.custom("Roboto-Bold", size: 36))
-				.padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
+        VStack {
+            Text("Lista de compras")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(Font.custom("Roboto-Bold", size: 36))
+                .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
 
-			Text("Marque a caixinha dos produtos ao coloca-los no carrinho de compras ou arraste para apagar.")
-				.frame(maxWidth: .infinity, alignment: .leading)
-				.font(Font.custom("Roboto-Regular", size: 16))
-				.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-				.foregroundColor(Color(hex: "#9A9C9E"))
+            Text("Marque a caixinha dos produtos ao coloca-los no carrinho de compras ou arraste para apagar.")
+                .blur(radius: isModalVisible ? 10 : 0)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(Font.custom("Roboto-Regular", size: 16))
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .foregroundColor(Color(hex: "#9A9C9E"))
             
             if listViewModel.isEmpty {
                 voidView
@@ -63,17 +72,17 @@ struct ListShoppingView: View {
                 listView
             }
             
-			Button(action: cleanList) {
-				Text("Limpar lista")
-					.foregroundColor(Color.white)
-					.frame(maxWidth: .infinity)
-			}
-			.frame(height: 48)
-			.background(Color(hex: "#BE6161"))
-			.cornerRadius(5)
-			.padding()
+            Button(action: cleanList) {
+                Text("Limpar lista")
+                    .foregroundColor(Color.white)
+                    .frame(maxWidth: .infinity)
+            }
+            .frame(height: 48)
+            .background(Color(hex: "#BE6161"))
+            .cornerRadius(5)
+            .padding()
             .opacity(listViewModel.isEmpty ? 0 : 1)
-		}
+        }
 	}
 
 	func deleteItem(_ index: IndexSet) {
@@ -90,6 +99,10 @@ struct ListShoppingView: View {
 			print("Erro ao deletar lista de objetos: \(error)")
 		}
 	}
+
+    func openEditModal(item: CellProductObject) {
+
+    }
 }
 
 struct ListShoppingView_Previews: PreviewProvider {

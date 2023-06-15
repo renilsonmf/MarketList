@@ -32,7 +32,7 @@ struct CellProductMarketView: View {
             }
 
             Spacer()
-            
+
             Button(action: action) {
                 Image(image)
             }

@@ -22,12 +22,14 @@ struct MarketTabBarView: View {
                     Image(systemName: "plus")
                     Text("Adicionar")
                 }
+                .tag(0)
             
             ListShoppingView()
                 .tabItem {
                     Image(systemName: "cart.fill")
                     Text("Lista de compras")
                 }
+                .tag(1)
         }
         .tint(.black)
     }
