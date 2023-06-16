@@ -18,7 +18,7 @@ struct AddShoppingView: View {
         VStack(alignment: .center, spacing: 25) {
             Image("supermarket")
                 .resizable()
-                .frame(width: 110, height: 100, alignment: .center)
+                .frame(width: 140, height: 140, alignment: .center)
             Text("Adicionar item a lista de compras")
                 .font(Font.custom("Roboto-Bold", size: 20))
             TextField("Digite algo", text: $productNameTextField)
@@ -31,7 +31,6 @@ struct AddShoppingView: View {
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
             
-
             Button(action: didTapSave) {
                 Text("Salvar")
                     .frame(maxWidth: .infinity)

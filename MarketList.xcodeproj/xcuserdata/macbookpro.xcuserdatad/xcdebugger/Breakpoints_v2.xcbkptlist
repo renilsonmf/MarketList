@@ -7,15 +7,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4EC382E0-1465-4932-BADA-198163C2C903"
+            uuid = "D31D4C13-4F7D-4070-8DAF-F9AED569BFB4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarketList/View/AddShopping/AddShoppingView.swift"
+            filePath = "MarketList/View/ListShopping/ListShoppingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "updateProduct(item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C03E336D-5E34-474D-83C0-E77231659589"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MarketList/View/ListShopping/CustomModalEditView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "didTapSave()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,33 +39,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBFCC52F-ADA6-44BC-A09B-9EE370F154DD"
+            uuid = "D1BC8841-2999-4CCD-B699-1D4209DA8D93"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarketList/View/AddShopping/AddShoppingView.swift"
+            filePath = "MarketList/View/ListShopping/CustomModalEditView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "saveItem()"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "init(item:updateItem:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B5462A79-F431-4BBA-BF32-993F190EE0B7"
+            uuid = "873C9DA9-8171-4E16-B56F-ADA2B267F057"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MarketList/View/ListShopping/ListShoppingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "listView"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "873C9DA9-8171-4E16-B56F-ADA2B267F057 - c4210eca1df3b6d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; MarketList.CustomModalEditView in closure #1 () -&gt; () in closure #1 (MarketList.CellProductObject) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listRowInsets(Swift.Optional&lt;SwiftUI.EdgeInsets&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MarketList.ListShoppingView.listView.getter : some"
+                  moduleName = "MarketList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/renilson/Desktop/MarketList/MarketList/View/ListShopping/ListShoppingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "873C9DA9-8171-4E16-B56F-ADA2B267F057 - 98a47e1ec990f46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 (MarketList.CellProductObject) -&gt; () in implicit closure #1 (MarketList.ListShoppingView) -&gt; (MarketList.CellProductObject) -&gt; () in closure #1 () -&gt; MarketList.CustomModalEditView in closure #1 () -&gt; () in closure #1 (MarketList.CellProductObject) -&gt; &lt;&lt;opaque return type of SwiftUI.View.listRowInsets(Swift.Optional&lt;SwiftUI.EdgeInsets&gt;) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.DynamicViewContent.onDelete(perform: Swift.Optional&lt;(Foundation.IndexSet) -&gt; ()&gt;) -&gt; some&gt;&gt;.0 in MarketList.ListShoppingView.listView.getter : some"
+                  moduleName = "MarketList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/renilson/Desktop/MarketList/MarketList/View/ListShopping/ListShoppingView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

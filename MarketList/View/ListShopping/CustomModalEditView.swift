@@ -8,24 +8,35 @@
 import SwiftUI
 
 struct CustomModalEditView: View {
-    @Binding var item: CellProductObject
-
+    @State var item: CellProductObject
+    @State var name: String = ""
+    @State var quantity: Int = 0
+    
+    private var updateItem: (CellProductObject) -> Void
+     
+    init(item: CellProductObject, updateItem: @escaping (CellProductObject) -> Void) {
+        self.item = item
+        self.updateItem = updateItem
+        self.name = item.name
+        self.quantity = item.quantity
+    }
+    
     var body: some View {
         VStack(spacing: 10) {
             Text("Informe os novos valores para editar esse item")
                 .font(Font.custom("Roboto-Bold", size: 20))
-            TextField("\(item.name)", text: $item.name)
+            TextField(name, text: $name)
                 .padding()
                 .background(Color(hex: "#F5F5F5"))
                 .cornerRadius(5)
-            Stepper(value: $item.quantity, in: 0...100) {
-                    Text("Quantidade = \(item.quantity)")
+            Stepper(value: $quantity, in: 0...100) {
+                    Text("Quantidade = \(quantity)")
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
 
             HStack {
-                Button(action: {}) {
+                Button(action: didTapSave) {
                     Text("Salvar")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -48,6 +59,10 @@ struct CustomModalEditView: View {
         }
         .padding()
         .background(Color.white)
+    }
+    
+    private func didTapSave() {
+        updateItem(item)
     }
 }
 

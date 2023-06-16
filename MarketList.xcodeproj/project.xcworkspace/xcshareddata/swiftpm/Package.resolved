@@ -17,6 +17,15 @@
         "revision" : "36b2df44453ba5e830369c76ab0683799a287605",
         "version" : "13.13.0"
       }
+    },
+    {
+      "identity" : "sheetkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fatbobman/SheetKit",
+      "state" : {
+        "revision" : "daadabc0f142e2e96a210d19c436b8e2c4bdeb46",
+        "version" : "0.1.0"
+      }
     }
   ],
   "version" : 2

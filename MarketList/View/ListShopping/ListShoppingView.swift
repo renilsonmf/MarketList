@@ -9,11 +9,12 @@ import SwiftUI
 import RealmSwift
 import Realm
 import Foundation
+import SheetKit
 
 struct ListShoppingView: View {
     @State private var itemSelected: CellProductObject = CellProductObject()
-    @State private var isModalVisible = false
     @ObservedResults(CellProductObject.self) var listViewModel
+    
     
     var listView: some View {
         List {
@@ -22,26 +23,19 @@ struct ListShoppingView: View {
                     name: item.name,
                     quantity: item.quantity
                 )
+                .onTapGesture {
+                    SheetKit().present(with: .bottomSheet) {
+                        CustomModalEditView(item: item, updateItem: updateProduct)
+                    }
+                }
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
-                .onTapGesture {
-                    itemSelected = item
-                    openEditModal(item: item)
-                    isModalVisible = true
-                }
             }
 			.onDelete(perform: deleteItem)
         }
         .buttonStyle(.plain)
         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
         .listStyle(.plain)
-        //.blur(radius: isModalVisible ? 10 : 0)
-        .overlay {
-            CustomModalEditView(item: $itemSelected)
-                .cornerRadius(8)
-                .frame(width: 300, height: 260)
-                .opacity(isModalVisible ? 1 : 0)
-        }
     }
     
     var voidView: some View {
@@ -60,7 +54,6 @@ struct ListShoppingView: View {
                 .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
 
             Text("Marque a caixinha dos produtos ao coloca-los no carrinho de compras ou arraste para apagar.")
-                .blur(radius: isModalVisible ? 10 : 0)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(Font.custom("Roboto-Regular", size: 16))
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -100,8 +93,8 @@ struct ListShoppingView: View {
 		}
 	}
 
-    func openEditModal(item: CellProductObject) {
-
+    func updateProduct(item: CellProductObject) {
+        
     }
 }
 

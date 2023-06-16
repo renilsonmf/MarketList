@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524B20B92A3BE7F90011AB35 /* SheetKit in Frameworks */ = {isa = PBXBuildFile; productRef = 524B20B82A3BE7F90011AB35 /* SheetKit */; };
 		5256BBCD2A1C3C5D00B10137 /* ListShoppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256BBCC2A1C3C5D00B10137 /* ListShoppingView.swift */; };
 		5256BBD12A1C3C9C00B10137 /* VoidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256BBD02A1C3C9C00B10137 /* VoidView.swift */; };
 		5256BBE22A1C416F00B10137 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5256BBD52A1C416F00B10137 /* Roboto-Medium.ttf */; };
@@ -96,6 +97,7 @@
 			files = (
 				F2446DA32A297CFD0098CFC5 /* RealmSwift in Frameworks */,
 				F2446DA12A297CFD0098CFC5 /* Realm in Frameworks */,
+				524B20B92A3BE7F90011AB35 /* SheetKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +278,7 @@
 			packageProductDependencies = (
 				F2446DA02A297CFD0098CFC5 /* Realm */,
 				F2446DA22A297CFD0098CFC5 /* RealmSwift */,
+				524B20B82A3BE7F90011AB35 /* SheetKit */,
 			);
 			productName = MarketList;
 			productReference = 52A6100A2A1C39F30035D12C /* MarketList.app */;
@@ -351,6 +354,7 @@
 			mainGroup = 52A610012A1C39F30035D12C;
 			packageReferences = (
 				F2446D9F2A297CFD0098CFC5 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				524B20B72A3BE7F80011AB35 /* XCRemoteSwiftPackageReference "SheetKit" */,
 			);
 			productRefGroup = 52A6100B2A1C39F30035D12C /* Products */;
 			projectDirPath = "";
@@ -742,6 +746,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		524B20B72A3BE7F80011AB35 /* XCRemoteSwiftPackageReference "SheetKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fatbobman/SheetKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		F2446D9F2A297CFD0098CFC5 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -753,6 +765,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		524B20B82A3BE7F90011AB35 /* SheetKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 524B20B72A3BE7F80011AB35 /* XCRemoteSwiftPackageReference "SheetKit" */;
+			productName = SheetKit;
+		};
 		F2446DA02A297CFD0098CFC5 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F2446D9F2A297CFD0098CFC5 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
