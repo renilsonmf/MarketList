@@ -13,6 +13,7 @@ import SheetKit
 
 struct ListShoppingView: View {
     @State private var itemSelected: CellProductObject = CellProductObject()
+    @State var idItemSelected: String = ""
     @ObservedResults(CellProductObject.self) var listViewModel
     
     
@@ -24,8 +25,12 @@ struct ListShoppingView: View {
                     quantity: item.quantity
                 )
                 .onTapGesture {
+                    idItemSelected = item.id
                     SheetKit().present(with: .bottomSheet) {
-                        CustomModalEditView(item: item, updateItem: updateProduct)
+                        //CustomModalEditView(item: item, updateItem: updateProduct)
+                        CustomModalEditView(name: item.name,
+                                            quantity: item.quantity,
+                                            updateItem: updateProduct)
                     }
                 }
                 .listRowSeparator(.hidden)
@@ -93,8 +98,19 @@ struct ListShoppingView: View {
 		}
 	}
 
-    func updateProduct(item: CellProductObject) {
+    func updateProduct(name: String, quantity: Int) {
         
+        do {
+            let realm = try Realm()
+            let itemToUpdate = realm.objects(CellProductObject.self).filter("id == %@", idItemSelected).first
+            try realm.write {
+                itemToUpdate?.name = name
+                itemToUpdate?.quantity = quantity
+                SheetKit().dismiss()
+            }
+        } catch {
+            print("Erro ao deletar lista de objetos: \(error)")
+        }
     }
 }
 
