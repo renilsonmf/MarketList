@@ -12,7 +12,7 @@ struct MarketTabBarView: View {
     @State var selectedTab = 0
 
     init() {
-        UITabBar.appearance().backgroundColor = UIColor.systemGray4
+        UITabBar.appearance().backgroundColor = UIColor(red: 0.962, green: 0.962, blue: 0.962, alpha: 1)
     }
     
     var body: some View {

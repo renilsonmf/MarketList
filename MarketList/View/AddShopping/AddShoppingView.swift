@@ -40,7 +40,7 @@ struct AddShoppingView: View {
 				Alert(title: Text(titleAlert))
 			}
             .frame(height: 48)
-            .background(Color(hex: "#8EA491"))
+            .background(Color(hex: "#7584F2"))
             .cornerRadius(5)
 
         }.padding()

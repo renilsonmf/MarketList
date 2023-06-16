@@ -38,7 +38,7 @@ struct CustomModalEditView: View {
                     Text("Salvar")
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.blue)
+                        .background(Color(hex: "#7584F2"))
                         .cornerRadius(5)
                         .foregroundColor(Color.white)
                 }
@@ -49,7 +49,7 @@ struct CustomModalEditView: View {
                     Text("Excluir")
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.red)
+                        .background(Color(hex: "#BE6161"))
                         .cornerRadius(5)
                         .foregroundColor(Color.white)
                 }
