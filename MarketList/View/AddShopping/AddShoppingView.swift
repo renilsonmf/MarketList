@@ -26,7 +26,7 @@ struct AddShoppingView: View {
                 .background(Color(hex: "#F5F5F5"))
                 .cornerRadius(5)
             Stepper(value: $productQuantity, in: 0...100) {
-                    Text("Quantidade = \(productQuantity)")
+                    Text("Quantidade: \(productQuantity)")
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
@@ -47,9 +47,9 @@ struct AddShoppingView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
-        .onTapGesture {
-            endTextEditing()
-        }
+     //   .onTapGesture {
+     //       endTextEditing()
+     //   }
     }
     
 	private func didTapSave() {

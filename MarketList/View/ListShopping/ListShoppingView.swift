@@ -29,7 +29,8 @@ struct ListShoppingView: View {
                         CustomModalEditView(name: item.name,
                                             quantity: item.quantity,
                                             id: item.id,
-                                            updateItem: updateProduct)
+                                            updateItem: updateProduct,
+                                            deleteItem: deleteItemFromModal)
                     }
                 }
                 .listRowSeparator(.hidden)
@@ -57,7 +58,7 @@ struct ListShoppingView: View {
                 .font(Font.custom("Roboto-Bold", size: 36))
                 .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
 
-            Text("Marque a caixinha dos produtos ao coloca-los no carrinho de compras ou arraste para apagar.")
+            Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(Font.custom("Roboto-Regular", size: 16))
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
@@ -85,6 +86,20 @@ struct ListShoppingView: View {
 	func deleteItem(_ index: IndexSet) {
         $listViewModel.remove(atOffsets: index)
 	}
+    
+    func deleteItemFromModal(id: String) {
+        do {
+            let realm = try Realm()
+            if let itemToDelete = realm.objects(CellProductObject.self).filter("id == %@", id).first {
+                try realm.write {
+                    realm.delete(itemToDelete)
+                    SheetKit().dismiss()
+                }
+            }
+        } catch {
+            print("Erro ao deletar lista de objetos: \(error)")
+        }
+    }
 
 	func cleanList() {
 		do {

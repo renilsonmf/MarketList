@@ -14,10 +14,10 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Ajustar bottom sheet
+Ajustar imagens
 Ajustar mal funcionamento do stepper
-Botão excluir do bottom sheet!
-
+adicionar Launch screen
+adicionar toast no lugar do alert
 v2 -
 Sugestões de produtos - Recorrência
 */

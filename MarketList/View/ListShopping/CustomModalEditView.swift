@@ -12,18 +12,25 @@ struct CustomModalEditView: View {
     @State var quantity: Int = 0
     var id: String
     private var updateItem: (String, Int, Bool, String) -> Void
+    private var deleteItem: (String) -> Void
      
-    init(name: String, quantity: Int, id: String, updateItem: @escaping (String, Int, Bool, String) -> Void) {
+    init(name: String,
+         quantity: Int,
+         id: String,
+         updateItem: @escaping (String, Int, Bool, String) -> Void,
+         deleteItem: @escaping (String) -> Void) {
         self.name = name
         self.quantity = quantity
-        self.updateItem = updateItem
         self.id = id
+        self.updateItem = updateItem
+        self.deleteItem = deleteItem
     }
     
     var body: some View {
-        VStack(spacing: 10) {
-            Text("Informe os novos valores para editar esse item")
-                .font(Font.custom("Roboto-Bold", size: 20))
+        VStack(alignment: .center, spacing: 24) {
+            Text("Informe os novos valores para editar esse item ou você pode removê-lo da lista.")
+                .font(Font.custom("Roboto-Medium", size: 14))
+                .foregroundColor(Color(hex: "#9A9C9E"))
             TextField(name, text: $name)
                 .padding()
                 .background(Color(hex: "#F5F5F5"))
@@ -33,7 +40,9 @@ struct CustomModalEditView: View {
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
-
+            
+            Spacer()
+            
             HStack {
                 Button(action: didTapSave) {
                     Text("Salvar")
@@ -46,7 +55,7 @@ struct CustomModalEditView: View {
 
                 Spacer()
                 
-                Button(action: {}) {
+                Button(action: didTapDelete) {
                     Text("Excluir")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -56,12 +65,16 @@ struct CustomModalEditView: View {
                 }
             }
         }
-        .padding()
+        .padding(EdgeInsets(top: 50, leading: 16, bottom: 16, trailing: 16))
         .background(Color.white)
     }
     
     private func didTapSave() {
         updateItem(name, quantity, false, id)
+    }
+    
+    private func didTapDelete() {
+        deleteItem(id)
     }
 }
 
