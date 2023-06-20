@@ -12,24 +12,23 @@ import Foundation
 import SheetKit
 
 struct ListShoppingView: View {
-    @State private var itemSelected: CellProductObject = CellProductObject()
-    @State var idItemSelected: String = ""
     @ObservedResults(CellProductObject.self) var listViewModel
-    
     
     var listView: some View {
         List {
             ForEach(listViewModel) { item in
                 CellProductMarketView(
                     name: item.name,
-                    quantity: item.quantity
+                    quantity: item.quantity,
+                    isChecked: item.isChecked,
+                    id: item.id,
+                    updateItem: updateProduct
                 )
                 .onTapGesture {
-                    idItemSelected = item.id
                     SheetKit().present(with: .bottomSheet) {
-                        //CustomModalEditView(item: item, updateItem: updateProduct)
                         CustomModalEditView(name: item.name,
                                             quantity: item.quantity,
+                                            id: item.id,
                                             updateItem: updateProduct)
                     }
                 }
@@ -98,14 +97,15 @@ struct ListShoppingView: View {
 		}
 	}
 
-    func updateProduct(name: String, quantity: Int) {
+    func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String) {
         
         do {
             let realm = try Realm()
-            let itemToUpdate = realm.objects(CellProductObject.self).filter("id == %@", idItemSelected).first
+            let itemToUpdate = realm.objects(CellProductObject.self).filter("id == %@", id).first
             try realm.write {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
+                itemToUpdate?.isChecked = isChecked
                 SheetKit().dismiss()
             }
         } catch {

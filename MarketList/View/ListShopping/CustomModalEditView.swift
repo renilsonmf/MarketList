@@ -10,13 +10,14 @@ import SwiftUI
 struct CustomModalEditView: View {
     @State var name: String = ""
     @State var quantity: Int = 0
-    
-    private var updateItem: (String, Int) -> Void
+    var id: String
+    private var updateItem: (String, Int, Bool, String) -> Void
      
-    init(name: String, quantity: Int, updateItem: @escaping (String, Int) -> Void) {
+    init(name: String, quantity: Int, id: String, updateItem: @escaping (String, Int, Bool, String) -> Void) {
         self.name = name
         self.quantity = quantity
         self.updateItem = updateItem
+        self.id = id
     }
     
     var body: some View {
@@ -60,7 +61,7 @@ struct CustomModalEditView: View {
     }
     
     private func didTapSave() {
-        updateItem(name, quantity)
+        updateItem(name, quantity, false, id)
     }
 }
 

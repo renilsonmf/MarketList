@@ -3,6 +3,7 @@ import Foundation
 
 final class CellProductObject: Object, Identifiable {
 	@objc dynamic var id = UUID().uuidString
+    @objc dynamic var isChecked = false
 	@objc dynamic var name = ""
 	@objc dynamic var quantity = 0
 
@@ -13,13 +14,11 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
- Adicionar campo checked no realm para controlar quando o usuario marcar que o item foi comprado.
- Unidade Unidades, gramas etc.
- Criar componente para os botoes
- Retirar interação das bordas dos botões
- Animação botões - Lottie
- Usar combine para alguma coisa
- Sugestões de produtos
- Editar produto (Criar prototipo)
- Fixar fontes ( não esta funcionando )
+Adicionar campo checked no realm para controlar quando o usuario marcar que o item foi comprado.
+Teclado descer quando clica fora
+Ajustar bottom sheet
+
+
+v2 -
+Sugestões de produtos - Mais usados
 */
