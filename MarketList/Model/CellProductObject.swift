@@ -14,10 +14,10 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Teclado descer quando clica fora
 Ajustar bottom sheet
-
+Ajustar mal funcionamento do stepper
+Botão excluir do bottom sheet!
 
 v2 -
-Sugestões de produtos - Mais usados
+Sugestões de produtos - Recorrência
 */
