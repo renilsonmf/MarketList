@@ -30,7 +30,7 @@ struct AddShoppingView: View {
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
-            
+
             Button(action: didTapSave) {
                 Text("Salvar")
                     .frame(maxWidth: .infinity)
@@ -43,7 +43,13 @@ struct AddShoppingView: View {
             .background(Color(hex: "#7584F2"))
             .cornerRadius(5)
 
-        }.padding()
+        }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.white)
+        .onTapGesture {
+            endTextEditing()
+        }
     }
     
 	private func didTapSave() {

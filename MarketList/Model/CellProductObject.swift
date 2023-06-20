@@ -14,7 +14,6 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Adicionar campo checked no realm para controlar quando o usuario marcar que o item foi comprado.
 Teclado descer quando clica fora
 Ajustar bottom sheet
 
