@@ -40,6 +40,8 @@ struct CellProductMarketView: View {
 
             Button(action: action) {
                 Image(isChecked ? "Checked" : "Unchecked")
+                    .resizable()
+                    .frame(width: 24, height: 24)
             }
         }
         .padding()
