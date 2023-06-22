@@ -44,22 +44,22 @@ struct CustomModalEditView: View {
             Spacer()
             
             HStack {
-                Button(action: didTapSave) {
-                    Text("Salvar")
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color(hex: "#7584F2"))
-                        .cornerRadius(5)
-                        .foregroundColor(Color.white)
-                }
-
-                Spacer()
-                
                 Button(action: didTapDelete) {
                     Text("Excluir")
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(Color(hex: "#BE6161"))
+                        .cornerRadius(5)
+                        .foregroundColor(Color.white)
+                }
+
+                Spacer()
+
+                Button(action: didTapSave) {
+                    Text("Salvar")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color(hex: "#7584F2"))
                         .cornerRadius(5)
                         .foregroundColor(Color.white)
                 }
