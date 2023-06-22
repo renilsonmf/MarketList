@@ -15,10 +15,8 @@ final class CellProductObject: Object, Identifiable {
 
 /*
 Ajustar mal funcionamento do stepper
-adicionar Launch screen
-Personalizar animação toast
-Header na lista - aumentar a area de scroll
- Validação excluir elementos
+Ajustar cor header
+Validação excluir elementos
 
 v2 -
 Sugestões de produtos - Recorrência

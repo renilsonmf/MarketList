@@ -25,11 +25,6 @@ struct ToastView: View {
             }
             .transition(.move(edge: .top))
             .animation(.easeInOut)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    isToastShowing = false
-                }
-            }
         }
     }
 }

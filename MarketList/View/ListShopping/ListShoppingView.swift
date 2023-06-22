@@ -16,6 +16,22 @@ struct ListShoppingView: View {
     
     var listView: some View {
         List {
+            Section(header:
+                Text("Lista de compras")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(Font.custom("Roboto-Bold", size: 36))
+                .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
+                .foregroundColor(Color.black)
+            ) {
+                Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(Font.custom("Roboto-Regular", size: 16))
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .foregroundColor(Color(hex: "#9A9C9E"))
+            }
+            .listRowSeparator(.hidden)
+
             ForEach(listViewModel) { item in
                 CellProductMarketView(
                     name: item.name,
@@ -53,17 +69,6 @@ struct ListShoppingView: View {
     
 	var body: some View {
         VStack {
-            Text("Lista de compras")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(Font.custom("Roboto-Bold", size: 36))
-                .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
-
-            Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .font(Font.custom("Roboto-Regular", size: 16))
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                .foregroundColor(Color(hex: "#9A9C9E"))
-            
             if listViewModel.isEmpty {
                 voidView
             } else {

@@ -67,6 +67,9 @@ struct AddShoppingView: View {
 			titleAlert = "Digite o nome do produto!"
 		} else {
             isToastShowing = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                isToastShowing = false
+            }
             saveItem()
 		}
     }

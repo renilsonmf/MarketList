@@ -38,6 +38,7 @@
 		F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */; };
 		F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */; };
 		F251098F2A1EE2490039D4F0 /* MarketTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */; };
+		F2544ACC2A44E9F8009CAB87 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2544ACB2A44E9F8009CAB87 /* Launch Screen.storyboard */; };
 		F2756A072A3A9E45001023BE /* CustomModalEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2756A062A3A9E45001023BE /* CustomModalEditView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductMarketView.swift; sourceTree = "<group>"; };
 		F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		F251098E2A1EE2490039D4F0 /* MarketTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketTabBarView.swift; sourceTree = "<group>"; };
+		F2544ACB2A44E9F8009CAB87 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F2756A062A3A9E45001023BE /* CustomModalEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,6 +271,7 @@
 				529AB8D12A21680E00C46A5C /* Main */,
 				529AB8CF2A21675B00C46A5C /* AddShopping */,
 				529AB8D02A2167D700C46A5C /* ListShopping */,
+				F2544ACB2A44E9F8009CAB87 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				5256BBE42A1C416F00B10137 /* Roboto-Regular.ttf in Resources */,
 				5256BBE62A1C416F00B10137 /* Roboto-ThinItalic.ttf in Resources */,
 				5256BBE82A1C416F00B10137 /* Roboto-LightItalic.ttf in Resources */,
+				F2544ACC2A44E9F8009CAB87 /* Launch Screen.storyboard in Resources */,
 				5256BBEB2A1C416F00B10137 /* Roboto-BlackItalic.ttf in Resources */,
 				5256BBE32A1C416F00B10137 /* Roboto-Light.ttf in Resources */,
 				5256BBE92A1C416F00B10137 /* Roboto-Italic.ttf in Resources */,
@@ -603,7 +607,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Assets.xcassets;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +643,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = Assets.xcassets;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
