@@ -10,7 +10,7 @@ import RealmSwift
 
 struct AddShoppingView: View {
     @State var productNameTextField: String = ""
-    @State var productQuantity: Int = 0
+    @State var productQuantity: Int = 1
 	@State var showAlert = false
 	@State var titleAlert = ""
 
@@ -25,7 +25,7 @@ struct AddShoppingView: View {
                 .padding()
                 .background(Color(hex: "#F5F5F5"))
                 .cornerRadius(5)
-            Stepper(value: $productQuantity, in: 0...100) {
+            Stepper(value: $productQuantity, in: 1...100) {
                     Text("Quantidade: \(productQuantity)")
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
@@ -53,9 +53,9 @@ struct AddShoppingView: View {
     }
     
 	private func didTapSave() {
-		if productNameTextField.isEmpty || productQuantity == 0 {
+		if productNameTextField.isEmpty {
 			showAlert = true
-			titleAlert = "Preencha todos os campos!"
+			titleAlert = "Digite o nome do produto!"
 		} else {
             saveItem()
 		}

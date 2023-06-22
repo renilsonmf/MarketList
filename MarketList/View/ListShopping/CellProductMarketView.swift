@@ -31,7 +31,7 @@ struct CellProductMarketView: View {
             ) {
                 Text(name)
                     .fontWeight(.bold)
-                Text("\(quantity) unidades")
+                Text(getUnity())
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
             }
@@ -47,6 +47,14 @@ struct CellProductMarketView: View {
         .padding()
         .background(Color(hex: "#F5F5F5"))
         .cornerRadius(5)
+    }
+
+    private func getUnity() -> String {
+        if quantity > 1 {
+            return "\(quantity) unidades"
+        } else {
+            return "\(quantity) unidade"
+        }
     }
 
     func action() {
