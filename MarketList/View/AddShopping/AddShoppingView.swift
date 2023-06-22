@@ -13,43 +13,52 @@ struct AddShoppingView: View {
     @State var productQuantity: Int = 1
 	@State var showAlert = false
 	@State var titleAlert = ""
+    @State private var isToastShowing = false
 
     var body: some View {
-        VStack(alignment: .center, spacing: 25) {
-            Image("supermarket")
-                .resizable()
-                .frame(width: 140, height: 140, alignment: .center)
-            Text("Adicionar item a lista de compras")
-                .font(Font.custom("Roboto-Bold", size: 20))
-            TextField("Digite algo", text: $productNameTextField)
-                .padding()
-                .background(Color(hex: "#F5F5F5"))
-                .cornerRadius(5)
-            Stepper(value: $productQuantity, in: 1...100) {
-                    Text("Quantidade: \(productQuantity)")
-                    .font(Font.custom("Roboto-Medium", size: 16))
-                    .foregroundColor(Color(hex: "#9A9C9E"))
+        ZStack {
+            VStack(alignment: .center, spacing: 25) {
+                Image("supermarket")
+                    .resizable()
+                    .frame(width: 140, height: 140, alignment: .center)
+                Text("Adicionar item a lista de compras")
+                    .font(Font.custom("Roboto-Bold", size: 20))
+                TextField("Digite algo", text: $productNameTextField)
+                    .padding()
+                    .background(Color(hex: "#F5F5F5"))
+                    .cornerRadius(5)
+                Stepper(value: $productQuantity, in: 1...100) {
+                        Text("Quantidade: \(productQuantity)")
+                        .font(Font.custom("Roboto-Medium", size: 16))
+                        .foregroundColor(Color(hex: "#9A9C9E"))
+                    }
+
+                Button(action: didTapSave) {
+                    Text("Salvar")
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text(titleAlert))
+                }
+                .frame(height: 48)
+                .background(Color(hex: "#7584F2"))
+                .cornerRadius(5)
 
-            Button(action: didTapSave) {
-                Text("Salvar")
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color.white)
             }
-			.alert(isPresented: $showAlert) {
-				Alert(title: Text(titleAlert))
-			}
-            .frame(height: 48)
-            .background(Color(hex: "#7584F2"))
-            .cornerRadius(5)
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
+            .onTapGesture {
+                endTextEditing()
+            }
 
+            ToastView(
+                isToastShowing: $isToastShowing,
+                text: "Item Adicionado!",
+                color: Color.green
+            )
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-     //   .onTapGesture {
-     //       endTextEditing()
-     //   }
     }
     
 	private func didTapSave() {
@@ -57,6 +66,7 @@ struct AddShoppingView: View {
 			showAlert = true
 			titleAlert = "Digite o nome do produto!"
 		} else {
+            isToastShowing = true
             saveItem()
 		}
     }
@@ -71,11 +81,8 @@ struct AddShoppingView: View {
 			try realm.write {
 				realm.add(object)
 			}
-
-			titleAlert = "Item adicionado!"
-			showAlert = true
             productNameTextField = ""
-            productQuantity = 0
+            productQuantity = 1
 		} catch {
 			titleAlert = "Ocorreu um erro inesperado ! 😞"
 			showAlert = true

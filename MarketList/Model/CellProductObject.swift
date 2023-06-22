@@ -17,7 +17,6 @@ final class CellProductObject: Object, Identifiable {
 Ajustar mal funcionamento do stepper
 adicionar Launch screen
 adicionar toast no lugar do alert
-Tratamento de plural (unidade l unidades)
 Botão excluir no lado esquerdo
 Toast sem retirar o firstResponder do textfield
 Header na lista - aumentar a area de scroll
@@ -25,4 +24,5 @@ Header na lista - aumentar a area de scroll
 v2 -
 Sugestões de produtos - Recorrência
 Calculadora de preço
+Desmarcar todos
 */
