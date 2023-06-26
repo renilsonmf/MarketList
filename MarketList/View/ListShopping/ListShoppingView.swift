@@ -16,54 +16,50 @@ struct ListShoppingView: View {
     @State var showAlert = false
     
     var listView: some View {
-        List {
-            Section(header:
-                Text("Lista de compras")
-                .frame(maxWidth: .infinity, alignment: .leading)
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Lista de compras")
                 .font(Font.custom("Roboto-Bold", size: 36))
-                .padding(EdgeInsets(top: 50, leading: 16, bottom: 8, trailing: 16))
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
                 .foregroundColor(Color.black)
-            ) {
+    
+            List {
                 Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
-                    .listRowBackground(Color.clear)
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .font(Font.custom("Roboto-Regular", size: 16))
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                     .foregroundColor(Color(hex: "#9A9C9E"))
-            }
-            .listRowSeparator(.hidden)
-
-            ForEach(listViewModel) { item in
-                CellProductMarketView(
-                    name: item.name,
-                    quantity: item.quantity,
-                    isChecked: item.isChecked,
-                    id: item.id,
-                    updateItem: updateProduct
-                )
-                .onTapGesture {
-                    SheetKit().present(with: .bottomSheet) {
-                        CustomModalEditView(name: item.name,
-                                            quantity: item.quantity,
-                                            id: item.id,
-                                            updateItem: updateProduct,
-                                            deleteItem: deleteItemFromModal)
+                ForEach(listViewModel) { item in
+                    CellProductMarketView(
+                        name: item.name,
+                        quantity: item.quantity,
+                        isChecked: item.isChecked,
+                        id: item.id,
+                        updateItem: updateProduct
+                    )
+                    .onTapGesture {
+                        SheetKit().present(with: .bottomSheet) {
+                            CustomModalEditView(name: item.name,
+                                                quantity: item.quantity,
+                                                id: item.id,
+                                                updateItem: updateProduct,
+                                                deleteItem: deleteItemFromModal)
+                        }
                     }
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
                 }
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
+                .onDelete(perform: deleteItem)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
+                          primaryButton: .default(Text("Ok")) {
+                        cleanList()
+                    }, secondaryButton: .cancel())
+                }
+                .cornerRadius(5)
             }
-			.onDelete(perform: deleteItem)
-            .alert(isPresented: $showAlert) {
-                Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
-                      primaryButton: .default(Text("Ok")) {
-                    cleanList()
-                }, secondaryButton: .cancel())
-            }
-            .cornerRadius(5)
+            .buttonStyle(.plain)
+            .listStyle(.plain)
         }
-        .buttonStyle(.plain)
-        .listStyle(.plain)
+        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
     }
     
     var voidView: some View {

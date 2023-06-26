@@ -44,7 +44,7 @@ struct CellProductMarketView: View {
                     .frame(width: 24, height: 24)
             }
         }
-        .padding(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+        .padding()
         .background(Color(hex: "#F5F5F5"))
         .cornerRadius(5)
     }
