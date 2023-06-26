@@ -60,12 +60,9 @@ struct ListShoppingView: View {
                     cleanList()
                 }, secondaryButton: .cancel())
             }
-            .frame(height: 48)
-            .background(Color(hex: "#7584F2"))
             .cornerRadius(5)
         }
         .buttonStyle(.plain)
-        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
         .listStyle(.plain)
     }
     

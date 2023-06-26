@@ -17,10 +17,10 @@ final class CellProductObject: Object, Identifiable {
 Ajustar imagem launch screen device menor
 Ajustar mal funcionamento do stepper
 Ajustar cor header
-Validação excluir elementos
 
 v2 -
 Sugestões de produtos - Recorrência
 Calculadora de preço
 Desmarcar todos
+Riscar campos marcado com o checked
 */
