@@ -13,6 +13,7 @@ import SheetKit
 
 struct ListShoppingView: View {
     @ObservedResults(CellProductObject.self) var listViewModel
+    @State var showAlert = false
     
     var listView: some View {
         List {
@@ -53,6 +54,15 @@ struct ListShoppingView: View {
                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
             }
 			.onDelete(perform: deleteItem)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
+                      primaryButton: .default(Text("Ok")) {
+                    cleanList()
+                }, secondaryButton: .cancel())
+            }
+            .frame(height: 48)
+            .background(Color(hex: "#7584F2"))
+            .cornerRadius(5)
         }
         .buttonStyle(.plain)
         .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
@@ -75,7 +85,7 @@ struct ListShoppingView: View {
                 listView
             }
             
-            Button(action: cleanList) {
+            Button(action: {showAlert = true}) {
                 Text("Limpar lista")
                     .foregroundColor(Color.white)
                     .frame(maxWidth: .infinity)

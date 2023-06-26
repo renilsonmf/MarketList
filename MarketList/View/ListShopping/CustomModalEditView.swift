@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomModalEditView: View {
     @State var name: String = ""
     @State var quantity: Int = 0
+    @State var showAlertDelete = false
     var id: String
     private var updateItem: (String, Int, Bool, String) -> Void
     private var deleteItem: (String) -> Void
@@ -44,7 +45,7 @@ struct CustomModalEditView: View {
             Spacer()
             
             HStack {
-                Button(action: didTapDelete) {
+                Button(action: {showAlertDelete = true}) {
                     Text("Excluir")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -62,6 +63,12 @@ struct CustomModalEditView: View {
                         .background(Color(hex: "#7584F2"))
                         .cornerRadius(5)
                         .foregroundColor(Color.white)
+                }
+                .alert(isPresented: $showAlertDelete) {
+                    Alert(title: Text("Tem certeza que deseja excluir o item \(name)?"),
+                          primaryButton: .default(Text("Ok")) {
+                        didTapDelete()
+                    }, secondaryButton: .cancel())
                 }
             }
         }

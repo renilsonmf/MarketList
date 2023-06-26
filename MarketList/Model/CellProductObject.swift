@@ -14,6 +14,7 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
+Ajustar imagem launch screen device menor
 Ajustar mal funcionamento do stepper
 Ajustar cor header
 Validação excluir elementos
