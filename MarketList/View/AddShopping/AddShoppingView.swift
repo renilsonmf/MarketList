@@ -27,6 +27,13 @@ struct AddShoppingView: View {
                     .padding()
                     .background(Color(hex: "#F5F5F5"))
                     .cornerRadius(5)
+                // MARK: - TODO
+                    .autocorrectionDisabled()
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Text("Ok")
+                        }
+                    }
                 Stepper(value: $productQuantity, in: 1...100) {
                         Text("Quantidade: \(productQuantity)")
                         .font(Font.custom("Roboto-Medium", size: 16))
@@ -49,9 +56,6 @@ struct AddShoppingView: View {
             .padding()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
-            .onTapGesture {
-                endTextEditing()
-            }
 
             ToastView(
                 isToastShowing: $isToastShowing,

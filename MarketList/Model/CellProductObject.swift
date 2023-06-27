@@ -14,12 +14,18 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Ajustar imagem launch screen device menor
 Ajustar mal funcionamento do stepper
+Componente Alert
+Realm Manager
+Tirar Clojure gigante (Int, String, ....) -> Void
+Criar componente de botão
+Empurrar keyboard mais para cima
+Toast em device menor fica zuado
 
 v2 -
 Sugestões de produtos - Recorrência
 Calculadora de preço
 Desmarcar todos
 Riscar campos marcado com o checked
+Limpar Realm quando atualizar aplicativo
 */
