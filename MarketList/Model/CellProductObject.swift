@@ -14,13 +14,10 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Ajustar mal funcionamento do stepper
 Componente Alert
 Realm Manager
 Tirar Clojure gigante (Int, String, ....) -> Void
 Criar componente de botão
-Empurrar keyboard mais para cima
-Toast em device menor fica zuado
 
 v2 -
 Sugestões de produtos - Recorrência
