@@ -18,22 +18,21 @@ struct AddShoppingView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 25) {
-                Image("supermarket")
-                    .resizable()
-                    .frame(width: 140, height: 140, alignment: .center)
-                Text("Adicionar item a lista de compras")
-                    .font(Font.custom("Roboto-Bold", size: 20))
-                TextField("Digite algo", text: $productNameTextField)
-                    .padding()
-                    .background(Color(hex: "#F5F5F5"))
-                    .cornerRadius(5)
-                // MARK: - TODO
-                    .autocorrectionDisabled()
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Text("Ok")
-                        }
-                    }
+                VStack(spacing: 25){
+                    Image("supermarket")
+                        .resizable()
+                        .frame(width: 140, height: 140, alignment: .center)
+                    Text("Adicionar item a lista de compras")
+                        .font(Font.custom("Roboto-Bold", size: 20))
+                    TextField("Digite algo", text: $productNameTextField)
+                        .padding()
+                        .background(Color(hex: "#F5F5F5"))
+                        .cornerRadius(5)
+                }
+                .background(.white)
+                .onTapGesture {
+                    endTextEditing()
+                }
                 Stepper(value: $productQuantity, in: 1...100) {
                         Text("Quantidade: \(productQuantity)")
                         .font(Font.custom("Roboto-Medium", size: 16))
@@ -53,9 +52,7 @@ struct AddShoppingView: View {
                 .cornerRadius(5)
 
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.white)
+            .padding(EdgeInsets(top: 16, leading: 16, bottom: 40, trailing: 16))
 
             ToastView(
                 isToastShowing: $isToastShowing,
