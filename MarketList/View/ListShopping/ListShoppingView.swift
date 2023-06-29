@@ -77,19 +77,46 @@ struct ListShoppingView: View {
             } else {
                 listView
             }
-            
-            Button(action: {showAlert = true}) {
-                Text("Limpar lista")
-                    .foregroundColor(Color.white)
-                    .frame(maxWidth: .infinity)
+            HStack(spacing: 8) {
+                Button(action: {showAlert = true}) {
+                    Text("Limpar lista")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity)
+                }
+                .frame(height: 48)
+                .background(Color(hex: "#BE6161"))
+                .cornerRadius(5)
+                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 0))
+                .opacity(listViewModel.isEmpty ? 0 : 1)
+                                
+                Button(action: uncheckAll) {
+                    Text("Desmarcar todos")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity)
+                }
+                .frame(height: 48)
+                .background(Color(hex: "#7584F2"))
+                .cornerRadius(5)
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 16))
+                .opacity(listViewModel.isEmpty ? 0 : 1)
             }
-            .frame(height: 48)
-            .background(Color(hex: "#BE6161"))
-            .cornerRadius(5)
-            .padding()
-            .opacity(listViewModel.isEmpty ? 0 : 1)
         }
 	}
+    
+    // MARK: Revisar
+    func uncheckAll() {
+        do {
+            let realm = try Realm()
+            let itemToAllUpdate = realm.objects(CellProductObject.self)
+            try realm.write {
+                for item in itemToAllUpdate {
+                    item.isChecked = false
+                }
+            }
+        } catch {
+            print("Erro ao deletar lista de objetos: \(error)")
+        }
+    }
 
 	func deleteItem(_ index: IndexSet) {
         $listViewModel.remove(atOffsets: index)
@@ -129,6 +156,7 @@ struct ListShoppingView: View {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
                 itemToUpdate?.isChecked = isChecked
+                allUnchecked = false
                 SheetKit().dismiss()
             }
         } catch {
