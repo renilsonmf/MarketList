@@ -16,7 +16,7 @@ struct ToastView: View {
         if isToastShowing {
             VStack {
                 Spacer()
-                    .frame(height: 28)
+                    .frame(height: 36)
                 Text(text)
                     .font(.headline)
                     .padding()
@@ -26,7 +26,7 @@ struct ToastView: View {
                 Spacer()
             }
             .transition(.move(edge: .top))
-            .animation(.easeInOut, value: 0)
+            .animation(.easeInOut)
             .ignoresSafeArea()
         }
     }

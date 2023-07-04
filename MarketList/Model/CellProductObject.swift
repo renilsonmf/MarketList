@@ -14,7 +14,6 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
-Adicionar botão desmarcar todos 
 Componente Alert
 Realm Manager
 Tirar Clojure gigante (Int, String, ....) -> Void

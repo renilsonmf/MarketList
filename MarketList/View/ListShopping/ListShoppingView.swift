@@ -14,7 +14,8 @@ import SheetKit
 struct ListShoppingView: View {
     @ObservedResults(CellProductObject.self) var listViewModel
     @State var showAlert = false
-    
+    @State var allUncheckedTriggering = false
+
     var listView: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Lista de compras")
@@ -29,9 +30,10 @@ struct ListShoppingView: View {
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 ForEach(listViewModel) { item in
                     CellProductMarketView(
+                        allUncheckedTriggering: $allUncheckedTriggering,
+                        isChecked: item.isChecked,
                         name: item.name,
                         quantity: item.quantity,
-                        isChecked: item.isChecked,
                         id: item.id,
                         updateItem: updateProduct
                     )
@@ -107,11 +109,12 @@ struct ListShoppingView: View {
     func uncheckAll() {
         do {
             let realm = try Realm()
-            let itemToAllUpdate = realm.objects(CellProductObject.self)
+            let allItems = realm.objects(CellProductObject.self)
             try realm.write {
-                for item in itemToAllUpdate {
+                for item in allItems {
                     item.isChecked = false
                 }
+                allUncheckedTriggering.toggle()
             }
         } catch {
             print("Erro ao deletar lista de objetos: \(error)")
@@ -156,7 +159,6 @@ struct ListShoppingView: View {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
                 itemToUpdate?.isChecked = isChecked
-                allUnchecked = false
                 SheetKit().dismiss()
             }
         } catch {

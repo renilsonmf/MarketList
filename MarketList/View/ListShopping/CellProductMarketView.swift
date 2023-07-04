@@ -8,20 +8,13 @@
 import SwiftUI
 
 struct CellProductMarketView: View {
-    @State var isChecked = false
+    @Binding var allUncheckedTriggering: Bool
+    @State var isChecked: Bool
     @State var image: String = "Unchecked"
-	var name: String
-	var quantity: Int
+    var name: String
+    var quantity: Int
     var id: String
-    private var updateItem: (String, Int, Bool, String) -> Void
-
-    init(name: String, quantity: Int, isChecked: Bool, id: String, updateItem: @escaping (String, Int, Bool, String) -> Void) {
-		self.name = name
-		self.quantity = quantity
-        self.isChecked = isChecked
-        self.updateItem = updateItem
-        self.id = id
-	}
+    var updateItem: (String, Int, Bool, String) -> Void
 
     var body: some View {
         HStack {
@@ -39,7 +32,7 @@ struct CellProductMarketView: View {
             Spacer()
 
             Button(action: action) {
-                Image(isChecked ? "Checked" : "Unchecked")
+                Image(getImage())
                     .resizable()
                     .frame(width: 24, height: 24)
             }
@@ -47,26 +40,22 @@ struct CellProductMarketView: View {
         .padding()
         .background(Color(hex: "#F5F5F5"))
         .cornerRadius(5)
+        .onChange(of: allUncheckedTriggering) { _ in
+            isChecked = false
+        }
+    }
+
+    private func getImage() -> String {
+        isChecked ? "Checked" : "Unchecked"
     }
 
     private func getUnity() -> String {
-        if quantity > 1 {
-            return "\(quantity) unidades"
-        } else {
-            return "\(quantity) unidade"
-        }
+        quantity > 1 ? "\(quantity) unidades" : "\(quantity) unidade"
     }
 
     func action() {
         isChecked.toggle()
         image = isChecked ? "Checked" : "Unchecked"
         updateItem(name, quantity, isChecked, id)
-    }
-}
-
-struct CellProductMarketView_Previews: PreviewProvider {
-    static var previews: some View {
-        CellProductMarketView(name: "Renilson", quantity: 5, isChecked: true, id: "") { _, _, _,_  in}
-            .previewLayout(.sizeThatFits)
     }
 }
