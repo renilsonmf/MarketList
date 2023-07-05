@@ -38,7 +38,7 @@ struct CellProductMarketView: View {
             }
         }
         .padding()
-        .background(Color(hex: "#F5F5F5"))
+        .background(isChecked ? Color(hex: "#DADBDC") : Color(hex: "#F5F5F5"))
         .cornerRadius(5)
         .onChange(of: allUncheckedTriggering) { _ in
             isChecked = false

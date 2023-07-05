@@ -13,16 +13,12 @@ import SheetKit
 
 struct ListShoppingView: View {
     @ObservedResults(CellProductObject.self) var listViewModel
-    @State var showAlert = false
+    @State var showAlertCleanList = false
+    @State var showAlertUnchecked = false
     @State var allUncheckedTriggering = false
 
     var listView: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Lista de compras")
-                .font(Font.custom("Roboto-Bold", size: 36))
-                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
-                .foregroundColor(Color.black)
-    
             List {
                 Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
                     .font(Font.custom("Roboto-Regular", size: 16))
@@ -50,37 +46,55 @@ struct ListShoppingView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
                 }
                 .onDelete(perform: deleteItem)
-                .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
-                          primaryButton: .default(Text("Ok")) {
-                        cleanList()
-                    }, secondaryButton: .cancel())
-                }
                 .cornerRadius(5)
             }
             .buttonStyle(.plain)
             .listStyle(.plain)
         }
-        .padding(EdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0))
     }
     
     var voidView: some View {
-        VStack {
+        VStack(alignment: .center) {
             Spacer()
             VoidView()
             Spacer()
         }
     }
     
+    var uncheckedButton: some View {
+        Button(action: {showAlertUnchecked = shouldShowUncheckedButton()}) {
+            Text("Desmarcar todos")
+                .foregroundColor(Color.white)
+                .frame(maxWidth: .infinity)
+        }
+        .frame(height: 48)
+        .background(Color(hex: "#7584F2"))
+        .cornerRadius(5)
+        .opacity(listViewModel.isEmpty ? 0 : 1)
+        .alert(isPresented: $showAlertUnchecked) {
+            Alert(title: Text("Tem certeza que deseja desmarcar todos os itens?"),
+                  primaryButton: .default(Text("Ok")) {
+                uncheckAll()
+            }, secondaryButton: .cancel())
+        }
+    }
+    
 	var body: some View {
-        VStack {
+        VStack(spacing: 8) {
+            HStack {
+                Text("Lista de compras")
+                    .font(Font.custom("Roboto-Bold", size: 36))
+                    .foregroundColor(Color.black)
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 0))
+                Spacer()
+            }
             if listViewModel.isEmpty {
                 voidView
             } else {
                 listView
             }
             HStack(spacing: 8) {
-                Button(action: {showAlert = true}) {
+                Button(action: {showAlertCleanList = true}) {
                     Text("Limpar lista")
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity)
@@ -88,22 +102,33 @@ struct ListShoppingView: View {
                 .frame(height: 48)
                 .background(Color(hex: "#BE6161"))
                 .cornerRadius(5)
-                .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 0))
                 .opacity(listViewModel.isEmpty ? 0 : 1)
-                                
-                Button(action: uncheckAll) {
-                    Text("Desmarcar todos")
-                        .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity)
+                .alert(isPresented: $showAlertCleanList) {
+                    Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
+                          primaryButton: .default(Text("Ok")) {
+                        cleanList()
+                    }, secondaryButton: .cancel())
                 }
-                .frame(height: 48)
-                .background(Color(hex: "#7584F2"))
-                .cornerRadius(5)
-                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 16))
-                .opacity(listViewModel.isEmpty ? 0 : 1)
+                
+                
+                if shouldShowUncheckedButton() {
+                    uncheckedButton
+                }
             }
+            .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         }
 	}
+    
+    private func shouldShowUncheckedButton() -> Bool {
+        var result = false
+        listViewModel.forEach { item in
+            if item.isChecked == true {
+                result = true
+                return
+            }
+        }
+        return result
+    }
     
     // MARK: Revisar
     func uncheckAll() {
