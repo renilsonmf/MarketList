@@ -22,8 +22,6 @@ Criar componente de botão
 v2 -
 Sugestões de produtos - Recorrência
 Calculadora de preço
-Desmarcar todos
-Riscar campos marcado com o checked
 Limpar Realm quando atualizar aplicativo
-Ajustar layout no figma
-*/
+Eliminar AddShopping View e fazer lista ser a unica tela do app
+ */
