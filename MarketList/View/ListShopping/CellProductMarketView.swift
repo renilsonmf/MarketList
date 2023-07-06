@@ -50,7 +50,7 @@ struct CellProductMarketView: View {
     }
 
     private func getUnity() -> String {
-        quantity > 1 ? "\(quantity) unidades" : "\(quantity) unidade"
+        quantity > 1 ? "\(quantity) \("unity_plural".localized)" : "\(quantity) \("unity_singular".localized)"
     }
 
     func action() {

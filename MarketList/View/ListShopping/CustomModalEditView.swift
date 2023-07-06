@@ -29,7 +29,7 @@ struct CustomModalEditView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 24) {
-            Text("Informe os novos valores para editar esse item ou você pode removê-lo da lista.")
+            Text("title_modal".localized)
                 .font(Font.custom("Roboto-Medium", size: 14))
                 .foregroundColor(Color(hex: "#9A9C9E"))
             TextField(name, text: $name)
@@ -37,7 +37,7 @@ struct CustomModalEditView: View {
                 .background(Color(hex: "#F5F5F5"))
                 .cornerRadius(5)
             Stepper(value: $quantity, in: 0...100) {
-                    Text("Quantidade = \(quantity)")
+                Text("\("quantity".localized): \(quantity)")
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
@@ -46,7 +46,7 @@ struct CustomModalEditView: View {
             
             HStack {
                 Button(action: {showAlertDelete = true}) {
-                    Text("Excluir")
+                    Text("delete".localized)
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(Color(hex: "#BE6161"))
@@ -57,7 +57,7 @@ struct CustomModalEditView: View {
                 Spacer()
 
                 Button(action: didTapSave) {
-                    Text("Salvar")
+                    Text("save".localized)
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(Color(hex: "#7584F2"))
@@ -65,7 +65,7 @@ struct CustomModalEditView: View {
                         .foregroundColor(Color.white)
                 }
                 .alert(isPresented: $showAlertDelete) {
-                    Alert(title: Text("Tem certeza que deseja excluir o item \(name)?"),
+                    Alert(title: Text("\("confirm_delete_item".localized) \(name)?"),
                           primaryButton: .default(Text("Ok")) {
                         didTapDelete()
                     }, secondaryButton: .cancel())

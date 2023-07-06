@@ -22,9 +22,9 @@ struct AddShoppingView: View {
                     Image("supermarket")
                         .resizable()
                         .frame(width: 140, height: 140, alignment: .center)
-                    Text("Adicionar item a lista de compras")
+                    Text("add_to_list")
                         .font(Font.custom("Roboto-Bold", size: 20))
-                    TextField("Digite algo", text: $productNameTextField)
+                    TextField("type_product_name", text: $productNameTextField)
                         .padding()
                         .background(Color(hex: "#F5F5F5"))
                         .cornerRadius(5)
@@ -34,13 +34,13 @@ struct AddShoppingView: View {
                     endTextEditing()
                 }
                 Stepper(value: $productQuantity, in: 1...100) {
-                        Text("Quantidade: \(productQuantity)")
+                    Text("\("quantity".localized): \(productQuantity)")
                         .font(Font.custom("Roboto-Medium", size: 16))
                         .foregroundColor(Color(hex: "#9A9C9E"))
                     }
 
                 Button(action: didTapSave) {
-                    Text("Salvar")
+                    Text("save")
                         .frame(maxWidth: .infinity)
                         .foregroundColor(Color.white)
                 }
@@ -56,7 +56,7 @@ struct AddShoppingView: View {
 
             ToastView(
                 isToastShowing: $isToastShowing,
-                text: "Item Adicionado!",
+                text: "toast_message".localized,
                 color: Color.green
             )
         }
@@ -65,7 +65,7 @@ struct AddShoppingView: View {
 	private func didTapSave() {
 		if productNameTextField.isEmpty {
 			showAlert = true
-			titleAlert = "Digite o nome do produto!"
+            titleAlert = "type_product_name".localized + "!"
 		} else {
             isToastShowing = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -88,9 +88,8 @@ struct AddShoppingView: View {
             productNameTextField = ""
             productQuantity = 1
 		} catch {
-			titleAlert = "Ocorreu um erro inesperado ! 😞"
+            titleAlert = "error_message".localized
 			showAlert = true
-			print("Erro ao salvar o objeto: \(error)")
 		}
 	}
 }

@@ -20,14 +20,14 @@ struct MarketTabBarView: View {
             AddShoppingView()
                 .tabItem {
                     Image(systemName: "plus")
-                    Text("Adicionar")
+                    Text("add")
                 }
                 .tag(0)
             
             ListShoppingView()
                 .tabItem {
                     Image(systemName: "cart.fill")
-                    Text("Lista de compras")
+                    Text("market_list")
                 }
                 .tag(1)
         }

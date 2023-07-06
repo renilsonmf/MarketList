@@ -1,10 +1,3 @@
-//
-//  VoidView.swift
-//  MarketList
-//
-//  Created by Renilson Moreira on 22/05/23.
-//
-
 import SwiftUI
 
 struct VoidView: View {
@@ -13,17 +6,10 @@ struct VoidView: View {
             Image("cart-supermarket")
                 .resizable()
                 .frame(width: 140, height: 140, alignment: .center)
-            Text("Sua lista está vazia!")
+            Text("void_message".localized)
                 .font(Font.custom("Roboto-Italic", size: 24))
                 .foregroundColor(Color(hex: "#5F266D"))
         }
         .padding()
-    }
-}
-
-struct VoidView_Previews: PreviewProvider {
-    static var previews: some View {
-        VoidView()
-            .previewLayout(.sizeThatFits)
     }
 }

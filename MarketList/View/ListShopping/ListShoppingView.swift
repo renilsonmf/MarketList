@@ -20,7 +20,7 @@ struct ListShoppingView: View {
     var listView: some View {
         VStack(alignment: .leading, spacing: 16) {
             List {
-                Text("Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.")
+                Text("subtitle".localized)
                     .font(Font.custom("Roboto-Regular", size: 16))
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                     .foregroundColor(Color(hex: "#9A9C9E"))
@@ -63,7 +63,7 @@ struct ListShoppingView: View {
     
     var uncheckedButton: some View {
         Button(action: {showAlertUnchecked = shouldShowUncheckedButton()}) {
-            Text("Desmarcar todos")
+            Text("uncheck_all".localized)
                 .foregroundColor(Color.white)
                 .frame(maxWidth: .infinity)
         }
@@ -72,7 +72,7 @@ struct ListShoppingView: View {
         .cornerRadius(5)
         .opacity(listViewModel.isEmpty ? 0 : 1)
         .alert(isPresented: $showAlertUnchecked) {
-            Alert(title: Text("Tem certeza que deseja desmarcar todos os itens?"),
+            Alert(title: Text("confirm_uncheck".localized),
                   primaryButton: .default(Text("Ok")) {
                 uncheckAll()
             }, secondaryButton: .cancel())
@@ -82,7 +82,7 @@ struct ListShoppingView: View {
 	var body: some View {
         VStack(spacing: 8) {
             HStack {
-                Text("Lista de compras")
+                Text("market_list".localized)
                     .font(Font.custom("Roboto-Bold", size: 36))
                     .foregroundColor(Color.black)
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 0))
@@ -95,7 +95,7 @@ struct ListShoppingView: View {
             }
             HStack(spacing: 8) {
                 Button(action: {showAlertCleanList = true}) {
-                    Text("Limpar lista")
+                    Text("clean_list".localized)
                         .foregroundColor(Color.white)
                         .frame(maxWidth: .infinity)
                 }
@@ -104,7 +104,7 @@ struct ListShoppingView: View {
                 .cornerRadius(5)
                 .opacity(listViewModel.isEmpty ? 0 : 1)
                 .alert(isPresented: $showAlertCleanList) {
-                    Alert(title: Text("Tem certeza que deseja excluir toda a lista?"),
+                    Alert(title: Text("confirm_clean".localized),
                           primaryButton: .default(Text("Ok")) {
                         cleanList()
                     }, secondaryButton: .cancel())
@@ -142,7 +142,7 @@ struct ListShoppingView: View {
                 allUncheckedTriggering.toggle()
             }
         } catch {
-            print("Erro ao deletar lista de objetos: \(error)")
+            fatalError()
         }
     }
 
@@ -160,7 +160,7 @@ struct ListShoppingView: View {
                 }
             }
         } catch {
-            print("Erro ao deletar lista de objetos: \(error)")
+            fatalError()
         }
     }
 
@@ -171,8 +171,8 @@ struct ListShoppingView: View {
 				realm.deleteAll()
 			}
 		} catch {
-			print("Erro ao deletar lista de objetos: \(error)")
-		}
+             fatalError()
+        }
 	}
 
     func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String) {
@@ -187,17 +187,10 @@ struct ListShoppingView: View {
                 SheetKit().dismiss()
             }
         } catch {
-            print("Erro ao deletar lista de objetos: \(error)")
+            fatalError()
         }
     }
 }
-
-struct ListShoppingView_Previews: PreviewProvider {
-	static var previews: some View {
-        ListShoppingView()
-	}
-}
-
 
 
 

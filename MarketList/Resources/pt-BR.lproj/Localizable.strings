@@ -1,0 +1,21 @@
+"market_list" = "Lista de compras";
+"add" = "Adicionar";
+"add_to_list" = "Adicionar item à lista de compras";
+"type_product_name" = "Digite o nome do produto";
+"quantity" = "Quantidade";
+"save" = "Salvar";
+"toast_message" = "Item Adicionado!"; 
+"error_message" = "Ocorreu um erro inesperado ! 😞";
+"unity_plural" = "unidades";
+"unity_singular" = "unidade";
+"void_message" = "Sua lista está vazia!";
+"subtitle" =
+"Marque a caixinha dos produtos ao colocá-los no carrinho de compras ou clique no item para editar ou excluir.";
+"uncheck_all" = "Desmarcar todos";
+"confirm_uncheck" = "Tem certeza que deseja desmarcar todos os itens?";
+"clean_list" = "Limpar lista";
+"confirm_clean" = "Tem certeza que deseja excluir toda a lista?";
+"title_modal" =
+"Informe os novos valores para editar esse item ou você pode removê-lo da lista.";
+"delete" = "Excluir";
+"confirm_delete_item" = "Tem certeza que deseja excluir o item";
