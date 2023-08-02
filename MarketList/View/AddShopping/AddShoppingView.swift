@@ -19,9 +19,6 @@ struct AddShoppingView: View {
         ZStack {
             VStack(alignment: .center, spacing: 25) {
                 VStack(spacing: 25){
-                    Image("supermarket")
-                        .resizable()
-                        .frame(width: 140, height: 140, alignment: .center)
                     Text("add_to_list")
                         .font(Font.custom("Roboto-Bold", size: 20))
                     TextField("type_product_name", text: $productNameTextField)
@@ -38,6 +35,8 @@ struct AddShoppingView: View {
                         .font(Font.custom("Roboto-Medium", size: 16))
                         .foregroundColor(Color(hex: "#9A9C9E"))
                     }
+                
+                Spacer()
 
                 Button(action: didTapSave) {
                     Text("save")
@@ -52,7 +51,7 @@ struct AddShoppingView: View {
                 .cornerRadius(5)
 
             }
-            .padding(EdgeInsets(top: 16, leading: 16, bottom: 40, trailing: 16))
+            .padding(EdgeInsets(top: 32, leading: 16, bottom: 16, trailing: 16))
 
             ToastView(
                 isToastShowing: $isToastShowing,

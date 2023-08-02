@@ -85,9 +85,18 @@ struct ListShoppingView: View {
                 Text("market_list".localized)
                     .font(Font.custom("Roboto-Bold", size: 36))
                     .foregroundColor(Color.black)
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 0))
+                
                 Spacer()
+                
+                Button(action: showModalAddShoppingView) {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .foregroundColor(.black)
+                }
             }
+            .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
+            
             if listViewModel.isEmpty {
                 voidView
             } else {
@@ -118,6 +127,12 @@ struct ListShoppingView: View {
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         }
 	}
+    
+    private func showModalAddShoppingView() {
+        SheetKit().present(with: .bottomSheet) {
+            AddShoppingView()
+        }
+    }
     
     private func shouldShowUncheckedButton() -> Bool {
         var result = false
