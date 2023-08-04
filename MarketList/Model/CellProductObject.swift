@@ -23,5 +23,4 @@ v2 -
 Sugestões de produtos - Recorrência
 Calculadora de preço
 Limpar Realm quando atualizar aplicativo
-Eliminar AddShopping View e fazer lista ser a unica tela do app
  */

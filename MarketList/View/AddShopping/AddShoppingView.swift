@@ -18,6 +18,10 @@ struct AddShoppingView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 25) {
+                RoundedRectangle(cornerSize: CGSize(width: 2, height: 2))
+                    .frame(width: 34, height: 4)
+                    .foregroundColor(Color.gray)
+
                 VStack(spacing: 25){
                     Text("add_to_list")
                         .font(Font.custom("Roboto-Bold", size: 20))
@@ -51,7 +55,7 @@ struct AddShoppingView: View {
                 .cornerRadius(5)
 
             }
-            .padding(EdgeInsets(top: 32, leading: 16, bottom: 16, trailing: 16))
+            .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 16))
 
             ToastView(
                 isToastShowing: $isToastShowing,

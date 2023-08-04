@@ -85,18 +85,17 @@ struct ListShoppingView: View {
                 Text("market_list".localized)
                     .font(Font.custom("Roboto-Bold", size: 36))
                     .foregroundColor(Color.black)
-                
+
                 Spacer()
-                
+
                 Button(action: showModalAddShoppingView) {
-                    Image(systemName: "plus")
+                    Image(systemName: "plus.circle.fill")
                         .resizable()
-                        .frame(width: 28, height: 28)
-                        .foregroundColor(.black)
+                        .frame(width: 32, height: 32)
                 }
             }
-            .padding(EdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16))
-            
+            .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
+
             if listViewModel.isEmpty {
                 voidView
             } else {
@@ -118,8 +117,8 @@ struct ListShoppingView: View {
                         cleanList()
                     }, secondaryButton: .cancel())
                 }
-                
-                
+
+
                 if shouldShowUncheckedButton() {
                     uncheckedButton
                 }
