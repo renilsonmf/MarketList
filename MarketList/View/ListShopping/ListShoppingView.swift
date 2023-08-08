@@ -16,6 +16,7 @@ struct ListShoppingView: View {
     @State var showAlertCleanList = false
     @State var showAlertUnchecked = false
     @State var allUncheckedTriggering = false
+    @State var isUserInteractionEnabled = true
 
     var listView: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -34,6 +35,7 @@ struct ListShoppingView: View {
                         updateItem: updateProduct
                     )
                     .onTapGesture {
+                        isUserInteractionEnabled = false
                         let configuration = SheetKit.BottomSheetConfiguration(detents: [.medium()],
                                                                               largestUndimmedDetentIdentifier: .medium,
                                                                               prefersGrabberVisible: true,
@@ -41,7 +43,9 @@ struct ListShoppingView: View {
                                                                               prefersEdgeAttachedInCompactHeight: false,
                                                                               widthFollowsPreferredContentSizeWhenEdgeAttached: false,
                                                                               preferredCornerRadius: 5)
-                        SheetKit().present(with: .customBottomSheet,configuration: configuration) {
+                        SheetKit().present(with: .customBottomSheet, onDisappear: {
+                            isUserInteractionEnabled = true
+                        },  configuration: configuration) {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
                                                 id: item.id,
@@ -51,6 +55,7 @@ struct ListShoppingView: View {
                     }
                     .listRowSeparator(.hidden)
                     .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 1, trailing: 16))
+                    .allowsHitTesting(isUserInteractionEnabled)
                 }
                 .onDelete(perform: deleteItem)
                 .cornerRadius(5)
