@@ -42,6 +42,10 @@ struct CustomModalEditView: View {
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
 
+            Rectangle()
+                .foregroundColor(Color.clear)
+                .frame(height: 30)
+
             HStack {
                 Button(action: {showAlertDelete = true}) {
                     Text("delete".localized)

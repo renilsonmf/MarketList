@@ -53,6 +53,10 @@ struct AddShoppingView: View {
                         .cornerRadius(5)
                         .keyboardType(.numberPad)
                 }
+
+                Rectangle()
+                    .foregroundColor(Color.clear)
+                    .frame(height: 4)
                 
                 Button(action: didTapSave) {
                     Text("save")
