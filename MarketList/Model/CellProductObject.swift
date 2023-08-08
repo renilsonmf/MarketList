@@ -14,13 +14,17 @@ final class CellProductObject: Object, Identifiable {
 
 
 /*
+Se sobrar tempo:
+Criar uma arquitetura
 Componente Alert
 Realm Manager
 Tirar Clojure gigante (Int, String, ....) -> Void
 Criar componente de botão
 
 v2 -
-Sugestões de produtos - Recorrência
+Adicionar strings em localize
+Espaçamento bottom sheet
+Aumentar area de toque do check
 Calculadora de preço
-Limpar Realm quando atualizar aplicativo
+Melhorar toast
  */

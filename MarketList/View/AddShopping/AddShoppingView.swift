@@ -10,6 +10,7 @@ import RealmSwift
 
 struct AddShoppingView: View {
     @State var productNameTextField: String = ""
+    @State var productPriceTextField: String = ""
     @State var productQuantity: Int = 1
 	@State var showAlert = false
 	@State var titleAlert = ""
@@ -17,11 +18,7 @@ struct AddShoppingView: View {
 
     var body: some View {
         ZStack {
-            VStack(alignment: .center, spacing: 25) {
-                RoundedRectangle(cornerSize: CGSize(width: 2, height: 2))
-                    .frame(width: 34, height: 4)
-                    .foregroundColor(Color.gray)
-
+            VStack(spacing: 16) {
                 VStack(spacing: 25){
                     Text("add_to_list")
                         .font(Font.custom("Roboto-Bold", size: 20))
@@ -40,8 +37,20 @@ struct AddShoppingView: View {
                         .foregroundColor(Color(hex: "#9A9C9E"))
                     }
                 
-                Spacer()
-
+                HStack {
+                    Text("Preço")
+                        .font(Font.custom("Roboto-Medium", size: 16))
+                        .foregroundColor(Color(hex: "#9A9C9E"))
+                    
+                    Spacer(minLength: 58)
+                    
+                    TextField("R$ 0,00", text: $productPriceTextField)
+                        .padding()
+                        .background(Color(hex: "#F5F5F5"))
+                        .cornerRadius(5)
+                        .keyboardType(.numberPad)
+                }
+                
                 Button(action: didTapSave) {
                     Text("save")
                         .frame(maxWidth: .infinity)
@@ -53,7 +62,6 @@ struct AddShoppingView: View {
                 .frame(height: 48)
                 .background(Color(hex: "#7584F2"))
                 .cornerRadius(5)
-
             }
             .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 16))
 
@@ -62,8 +70,8 @@ struct AddShoppingView: View {
                 text: "toast_message".localized,
                 color: Color.green
             )
-        }
-    }
+        } // ZStack
+    } // View
     
 	private func didTapSave() {
 		if productNameTextField.isEmpty {

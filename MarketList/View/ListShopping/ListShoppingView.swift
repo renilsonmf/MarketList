@@ -34,7 +34,14 @@ struct ListShoppingView: View {
                         updateItem: updateProduct
                     )
                     .onTapGesture {
-                        SheetKit().present(with: .bottomSheet) {
+                        let configuration = SheetKit.BottomSheetConfiguration(detents: [.medium()],
+                                                                              largestUndimmedDetentIdentifier: .medium,
+                                                                              prefersGrabberVisible: true,
+                                                                              prefersScrollingExpandsWhenScrolledToEdge: false,
+                                                                              prefersEdgeAttachedInCompactHeight: false,
+                                                                              widthFollowsPreferredContentSizeWhenEdgeAttached: false,
+                                                                              preferredCornerRadius: 5)
+                        SheetKit().present(with: .customBottomSheet,configuration: configuration) {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
                                                 id: item.id,
@@ -92,6 +99,7 @@ struct ListShoppingView: View {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .frame(width: 32, height: 32)
+                        .foregroundColor(Color.init(hex: "#7584F2"))
                 }
             }
             .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
@@ -128,7 +136,15 @@ struct ListShoppingView: View {
 	}
     
     private func showModalAddShoppingView() {
-        SheetKit().present(with: .bottomSheet) {
+        let configuration = SheetKit.BottomSheetConfiguration(detents: [.medium(),.medium()],
+                                                              largestUndimmedDetentIdentifier: .medium,
+                                                              prefersGrabberVisible: true,
+                                                              prefersScrollingExpandsWhenScrolledToEdge: false,
+                                                              prefersEdgeAttachedInCompactHeight: false,
+                                                              widthFollowsPreferredContentSizeWhenEdgeAttached: false,
+                                                              preferredCornerRadius: 5)
+
+        SheetKit().present(with: .customBottomSheet,configuration: configuration) {
             AddShoppingView()
         }
     }

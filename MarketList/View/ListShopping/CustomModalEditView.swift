@@ -28,11 +28,7 @@ struct CustomModalEditView: View {
     }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 24) {
-            RoundedRectangle(cornerSize: CGSize(width: 2, height: 2))
-                .frame(width: 34, height: 4)
-                .foregroundColor(Color.gray)
-
+        VStack(spacing: 24) {
             Text("title_modal".localized)
                 .font(Font.custom("Roboto-Medium", size: 14))
                 .foregroundColor(Color(hex: "#9A9C9E"))
@@ -45,9 +41,7 @@ struct CustomModalEditView: View {
                     .font(Font.custom("Roboto-Medium", size: 16))
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
-            
-            Spacer()
-            
+
             HStack {
                 Button(action: {showAlertDelete = true}) {
                     Text("delete".localized)
@@ -57,9 +51,7 @@ struct CustomModalEditView: View {
                         .cornerRadius(5)
                         .foregroundColor(Color.white)
                 }
-
-                Spacer()
-
+                                
                 Button(action: didTapSave) {
                     Text("save".localized)
                         .padding()
@@ -76,7 +68,7 @@ struct CustomModalEditView: View {
                 }
             }
         }
-        .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 16))
+        .padding(EdgeInsets(top: 4, leading: 16, bottom: 0, trailing: 16))
         .background(Color.white)
     }
     
