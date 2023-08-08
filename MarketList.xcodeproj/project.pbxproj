@@ -31,7 +31,7 @@
 		52A610292A1C39F70035D12C /* MarketListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A610282A1C39F70035D12C /* MarketListUITests.swift */; };
 		52A6102B2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */; };
 		F200812F2A41321C00C4CC8A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200812E2A41321C00C4CC8A /* View+Extensions.swift */; };
-		F22C000F2A43D7920043A324 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22C000E2A43D7920043A324 /* ToastView.swift */; };
+		F23EDD622A8302800078376E /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F23EDD612A8302800078376E /* AlertToast */; };
 		F2446DA12A297CFD0098CFC5 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F2446DA02A297CFD0098CFC5 /* Realm */; };
 		F2446DA32A297CFD0098CFC5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2446DA22A297CFD0098CFC5 /* RealmSwift */; };
 		F2446DA52A297DC10098CFC5 /* CellProductObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2446DA42A297DC10098CFC5 /* CellProductObject.swift */; };
@@ -88,7 +88,6 @@
 		52A610282A1C39F70035D12C /* MarketListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListUITests.swift; sourceTree = "<group>"; };
 		52A6102A2A1C39F70035D12C /* MarketListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F200812E2A41321C00C4CC8A /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
-		F22C000E2A43D7920043A324 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F2446DA42A297DC10098CFC5 /* CellProductObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductObject.swift; sourceTree = "<group>"; };
 		F251098A2A1EDB0F0039D4F0 /* CellProductMarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProductMarketView.swift; sourceTree = "<group>"; };
 		F251098C2A1EE0770039D4F0 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
@@ -105,6 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2446DA32A297CFD0098CFC5 /* RealmSwift in Frameworks */,
+				F23EDD622A8302800078376E /* AlertToast in Frameworks */,
 				F2446DA12A297CFD0098CFC5 /* Realm in Frameworks */,
 				524B20B92A3BE7F90011AB35 /* SheetKit in Frameworks */,
 			);
@@ -245,14 +245,6 @@
 			path = MarketListUITests;
 			sourceTree = "<group>";
 		};
-		F22C000D2A43D77E0043A324 /* Toast */ = {
-			isa = PBXGroup;
-			children = (
-				F22C000E2A43D7920043A324 /* ToastView.swift */,
-			);
-			path = Toast;
-			sourceTree = "<group>";
-		};
 		F27FD7182A257CE60018F480 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,7 +256,6 @@
 		F27FD7192A257CEE0018F480 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F22C000D2A43D77E0043A324 /* Toast */,
 				529AB8CF2A21675B00C46A5C /* AddShopping */,
 				529AB8D02A2167D700C46A5C /* ListShopping */,
 				F2544ACB2A44E9F8009CAB87 /* Launch Screen.storyboard */,
@@ -292,6 +283,7 @@
 				F2446DA02A297CFD0098CFC5 /* Realm */,
 				F2446DA22A297CFD0098CFC5 /* RealmSwift */,
 				524B20B82A3BE7F90011AB35 /* SheetKit */,
+				F23EDD612A8302800078376E /* AlertToast */,
 			);
 			productName = MarketList;
 			productReference = 52A6100A2A1C39F30035D12C /* MarketList.app */;
@@ -369,6 +361,7 @@
 			packageReferences = (
 				F2446D9F2A297CFD0098CFC5 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				524B20B72A3BE7F80011AB35 /* XCRemoteSwiftPackageReference "SheetKit" */,
+				F23EDD602A8302800078376E /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 52A6100B2A1C39F30035D12C /* Products */;
 			projectDirPath = "";
@@ -433,7 +426,6 @@
 				52A6100E2A1C39F30035D12C /* MarketListApp.swift in Sources */,
 				F251098B2A1EDB0F0039D4F0 /* CellProductMarketView.swift in Sources */,
 				5256BBD12A1C3C9C00B10137 /* VoidView.swift in Sources */,
-				F22C000F2A43D7920043A324 /* ToastView.swift in Sources */,
 				5256BBCD2A1C3C5D00B10137 /* ListShoppingView.swift in Sources */,
 				F251098D2A1EE0770039D4F0 /* Color+Extensions.swift in Sources */,
 				F200812F2A41321C00C4CC8A /* View+Extensions.swift in Sources */,
@@ -800,6 +792,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		F23EDD602A8302800078376E /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		F2446D9F2A297CFD0098CFC5 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
@@ -815,6 +815,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 524B20B72A3BE7F80011AB35 /* XCRemoteSwiftPackageReference "SheetKit" */;
 			productName = SheetKit;
+		};
+		F23EDD612A8302800078376E /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F23EDD602A8302800078376E /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 		F2446DA02A297CFD0098CFC5 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

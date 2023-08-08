@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealmSwift
+import AlertToast
 
 struct AddShoppingView: View {
     @State var productNameTextField: String = ""
@@ -15,6 +16,7 @@ struct AddShoppingView: View {
 	@State var showAlert = false
 	@State var titleAlert = ""
     @State private var isToastShowing = false
+    @FocusState private var isTextFieldProductNameFocused: Bool
 
     var body: some View {
         ZStack {
@@ -26,6 +28,7 @@ struct AddShoppingView: View {
                         .padding()
                         .background(Color(hex: "#F5F5F5"))
                         .cornerRadius(5)
+                        .focused($isTextFieldProductNameFocused)
                 }
                 .background(.white)
                 .onTapGesture {
@@ -57,19 +60,20 @@ struct AddShoppingView: View {
                         .foregroundColor(Color.white)
                 }
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text(titleAlert))
+                    Alert(title: Text(titleAlert), message: nil, dismissButton: .default(Text("OK")) {
+                        isTextFieldProductNameFocused = true
+                    })
                 }
                 .frame(height: 48)
                 .background(Color(hex: "#7584F2"))
                 .cornerRadius(5)
             }
             .padding(EdgeInsets(top: 4, leading: 16, bottom: 16, trailing: 16))
-
-            ToastView(
-                isToastShowing: $isToastShowing,
-                text: "toast_message".localized,
-                color: Color.green
-            )
+            .toast(isPresenting: $isToastShowing, duration: 0.6) {
+                AlertToast(displayMode: .alert,
+                           type: .complete(.green),
+                           title: "toast_message".localized)
+            }
         } // ZStack
     } // View
     
@@ -103,10 +107,4 @@ struct AddShoppingView: View {
 			showAlert = true
 		}
 	}
-}
-
-struct AddShoppingView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddShoppingView()
-    }
 }
