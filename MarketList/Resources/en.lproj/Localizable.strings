@@ -17,3 +17,5 @@
 "title_modal" = "Provide the new values to edit this item or you can remove it from the list.";
 "delete" = "Delete";
 "confirm_delete_item" = "Are you sure you want to delete the item";
+"zero_money_placeholder" = "$ 0,00";
+"price" = "Price";

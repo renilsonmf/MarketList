@@ -41,13 +41,13 @@ struct AddShoppingView: View {
                     }
                 
                 HStack {
-                    Text("Preço")
+                    Text("price")
                         .font(Font.custom("Roboto-Medium", size: 16))
                         .foregroundColor(Color(hex: "#9A9C9E"))
                     
                     Spacer(minLength: 58)
                     
-                    TextField("R$ 0,00", text: $productPriceTextField)
+                    TextField("zero_money_placeholder".localized, text: $productPriceTextField)
                         .padding()
                         .background(Color(hex: "#F5F5F5"))
                         .cornerRadius(5)

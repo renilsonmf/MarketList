@@ -19,3 +19,5 @@
 "Informe os novos valores para editar esse item ou você pode removê-lo da lista.";
 "delete" = "Excluir";
 "confirm_delete_item" = "Tem certeza que deseja excluir o item";
+"zero_money_placeholder" = "R$ 0,00";
+"price" = "Preço";

@@ -32,17 +32,27 @@ struct CellProductMarketView: View {
             Spacer()
 
             Button(action: action) {
-                Image(getImage())
-                    .resizable()
-                    .frame(width: 24, height: 24)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 64, height: 64)
+                        .foregroundColor(getColor())
+
+                    Image(getImage())
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
             }
         }
-        .padding()
-        .background(isChecked ? Color(hex: "#DADBDC") : Color(hex: "#F5F5F5"))
+        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 4))
+        .background(getColor())
         .cornerRadius(5)
         .onChange(of: allUncheckedTriggering) { _ in
             isChecked = false
         }
+    }
+
+    private func getColor() -> Color {
+        isChecked ? Color(hex: "#DADBDC") : Color(hex: "#F5F5F5")
     }
 
     private func getImage() -> String {

@@ -22,9 +22,6 @@ Tirar Clojure gigante (Int, String, ....) -> Void
 Criar componente de botão
 
 v2 -
-Adicionar strings em localize
-Espaçamento bottom sheet
-Aumentar area de toque do check
 Calculadora de preço
-Melhorar toast
+Formatar preço
  */
