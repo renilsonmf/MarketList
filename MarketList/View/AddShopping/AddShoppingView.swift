@@ -100,6 +100,7 @@ struct AddShoppingView: View {
 			let object = CellProductObject()
 			object.name = productNameTextField
 			object.quantity = productQuantity
+            object.price = productPriceTextField
 
 			try realm.write {
 				realm.add(object)

@@ -12,21 +12,10 @@ struct CustomModalEditView: View {
     @State var quantity: Int = 0
     @State var showAlertDelete = false
     var id: String
-    private var updateItem: (String, Int, Bool, String) -> Void
-    private var deleteItem: (String) -> Void
-     
-    init(name: String,
-         quantity: Int,
-         id: String,
-         updateItem: @escaping (String, Int, Bool, String) -> Void,
-         deleteItem: @escaping (String) -> Void) {
-        self.name = name
-        self.quantity = quantity
-        self.id = id
-        self.updateItem = updateItem
-        self.deleteItem = deleteItem
-    }
-    
+    @State var price: String
+    var updateItem: (String, Int, Bool, String, String) -> Void
+    var deleteItem: (String) -> Void
+
     var body: some View {
         VStack(spacing: 24) {
             Text("title_modal".localized)
@@ -42,9 +31,19 @@ struct CustomModalEditView: View {
                     .foregroundColor(Color(hex: "#9A9C9E"))
                 }
 
-            Rectangle()
-                .foregroundColor(Color.clear)
-                .frame(height: 30)
+            HStack {
+                Text("price")
+                    .font(Font.custom("Roboto-Medium", size: 16))
+                    .foregroundColor(Color(hex: "#9A9C9E"))
+
+                Spacer(minLength: 58)
+
+                TextField(price, text: $price)
+                    .padding()
+                    .background(Color(hex: "#F5F5F5"))
+                    .cornerRadius(5)
+                    .keyboardType(.numberPad)
+            }
 
             HStack {
                 Button(action: {showAlertDelete = true}) {
@@ -77,7 +76,7 @@ struct CustomModalEditView: View {
     }
     
     private func didTapSave() {
-        updateItem(name, quantity, false, id)
+        updateItem(name, quantity, false, id, price)
     }
     
     private func didTapDelete() {

@@ -14,7 +14,8 @@ struct CellProductMarketView: View {
     var name: String
     var quantity: Int
     var id: String
-    var updateItem: (String, Int, Bool, String) -> Void
+    var price: String
+    var updateItem: (String, Int, Bool, String, String) -> Void
 
     var body: some View {
         HStack {
@@ -25,6 +26,9 @@ struct CellProductMarketView: View {
                 Text(name)
                     .fontWeight(.bold)
                 Text(getUnity())
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                Text(price)
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
             }
@@ -66,6 +70,6 @@ struct CellProductMarketView: View {
     func action() {
         isChecked.toggle()
         image = isChecked ? "Checked" : "Unchecked"
-        updateItem(name, quantity, isChecked, id)
+        updateItem(name, quantity, isChecked, id, price)
     }
 }

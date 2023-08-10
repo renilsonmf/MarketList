@@ -5,7 +5,8 @@ final class CellProductObject: Object, Identifiable {
 	@objc dynamic var id = UUID().uuidString
     @objc dynamic var isChecked = false
 	@objc dynamic var name = ""
-	@objc dynamic var quantity = 0
+    @objc dynamic var quantity = 0
+	@objc dynamic var price = ""
 
 	override static func primaryKey() -> String? {
 		return "id"
@@ -24,4 +25,5 @@ Criar componente de botão
 v2 -
 Calculadora de preço
 Formatar preço
+Compartilhar lista
  */

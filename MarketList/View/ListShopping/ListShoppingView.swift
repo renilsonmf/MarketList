@@ -32,6 +32,7 @@ struct ListShoppingView: View {
                         name: item.name,
                         quantity: item.quantity,
                         id: item.id,
+                        price: item.price,
                         updateItem: updateProduct
                     )
                     .onTapGesture {
@@ -49,6 +50,7 @@ struct ListShoppingView: View {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
                                                 id: item.id,
+                                                price: item.price,
                                                 updateItem: updateProduct,
                                                 deleteItem: deleteItemFromModal)
                         }
@@ -210,7 +212,7 @@ struct ListShoppingView: View {
         }
 	}
 
-    func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String) {
+    func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String, price: String) {
         
         do {
             let realm = try Realm()
@@ -219,6 +221,7 @@ struct ListShoppingView: View {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
                 itemToUpdate?.isChecked = isChecked
+                itemToUpdate?.price = price
                 SheetKit().dismiss()
             }
         } catch {
