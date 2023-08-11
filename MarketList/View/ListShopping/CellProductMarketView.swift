@@ -28,9 +28,11 @@ struct CellProductMarketView: View {
                 Text(getUnity())
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
-                Text(price)
-                    .fontWeight(.bold)
-                    .foregroundColor(.gray)
+                if !price.isEmpty {
+                    Text(price.formatPrice())
+                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
+                }
             }
 
             Spacer()

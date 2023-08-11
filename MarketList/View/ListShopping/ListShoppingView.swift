@@ -64,6 +64,20 @@ struct ListShoppingView: View {
             }
             .buttonStyle(.plain)
             .listStyle(.plain)
+
+            HStack {
+                Text("total_price")
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+
+                Spacer()
+
+                Text(getTotalPrice())
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+            }
+            .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+
         }
     }
     
@@ -141,6 +155,26 @@ struct ListShoppingView: View {
             .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         }
 	}
+
+    private func getTotalPrice() -> String {
+        var result = String()
+
+        do {
+            let realm = try Realm()
+            let allItems = realm.objects(CellProductObject.self)
+            try realm.write {
+                let totalPrice = allItems.compactMap { object in
+                    (Float(object.price) ?? 0) * Float(object.quantity)
+                }.reduce(0, +)
+
+                result = String(totalPrice)
+            }
+        } catch {
+            fatalError()
+        }
+
+        return result.formatPrice()
+    }
     
     private func showModalAddShoppingView() {
         let configuration = SheetKit.BottomSheetConfiguration(detents: [.medium(),.medium()],
@@ -229,6 +263,3 @@ struct ListShoppingView: View {
         }
     }
 }
-
-
-

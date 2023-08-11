@@ -13,7 +13,6 @@ final class CellProductObject: Object, Identifiable {
 	}
 }
 
-
 /*
 Se sobrar tempo:
 Criar uma arquitetura

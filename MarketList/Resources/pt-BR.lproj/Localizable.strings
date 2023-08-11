@@ -20,4 +20,5 @@
 "delete" = "Excluir";
 "confirm_delete_item" = "Tem certeza que deseja excluir o item";
 "zero_money_placeholder" = "R$ 0,00";
-"price" = "Preço";
+"price" = "Preço unitário";
+"total_price" = "Preço total:";
