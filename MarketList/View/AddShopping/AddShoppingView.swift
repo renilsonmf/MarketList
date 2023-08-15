@@ -52,6 +52,9 @@ struct AddShoppingView: View {
                         .background(Color(hex: "#F5F5F5"))
                         .cornerRadius(5)
                         .keyboardType(.numberPad)
+                        .onChange(of: productPriceTextField) { newValue in
+                            productPriceTextField = newValue.formatPrice()
+                        }
                 }
 
                 Rectangle()

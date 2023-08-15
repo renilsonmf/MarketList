@@ -38,11 +38,14 @@ struct CustomModalEditView: View {
 
                 Spacer(minLength: 58)
 
-                TextField(price, text: $price)
+                TextField("zero_money_placeholder", text: $price)
                     .padding()
                     .background(Color(hex: "#F5F5F5"))
                     .cornerRadius(5)
                     .keyboardType(.numberPad)
+                    .onChange(of: price) { newValue in
+                        price = newValue.formatPrice()
+                    }
             }
 
             HStack {

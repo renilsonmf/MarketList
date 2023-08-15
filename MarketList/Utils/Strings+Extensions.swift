@@ -6,11 +6,17 @@ extension String {
     }
 
     func formatPrice() -> String {
-        guard let valueFloat = Float(self) else { return String() }
+        let pureNumber = self
+            .replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+
+        guard let intValue = Int(pureNumber) else { return "" }
+
+        let floatValue = Float(intValue) / 100.0
+
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale.current
 
-        return formatter.string(from: NSNumber(value: valueFloat)) ?? ""
+        return formatter.string(from: NSNumber(value: floatValue)) ?? ""
     }
 }

@@ -22,7 +22,6 @@ Tirar Clojure gigante (Int, String, ....) -> Void
 Criar componente de botão
 
 v2 -
-Calculadora de preço
-Formatar preço
+Soma final
 Compartilhar lista
  */
