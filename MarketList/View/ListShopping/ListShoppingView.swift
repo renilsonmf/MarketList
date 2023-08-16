@@ -45,8 +45,8 @@ struct ListShoppingView: View {
                         SheetKit().present(with: .customBottomSheet, configuration: configuration) {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
-                                                id: item.id,
                                                 price: item.price.formatPrice(),
+                                                id: item.id,
                                                 updateItem: updateProduct,
                                                 deleteItem: deleteItemFromModal)
                         }
