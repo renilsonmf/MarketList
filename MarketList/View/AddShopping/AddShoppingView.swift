@@ -114,6 +114,8 @@ struct AddShoppingView: View {
 				realm.add(object)
 			}
             productNameTextField = ""
+            productPriceTextField = ""
+            isTextFieldProductNameFocused = true
             productQuantity = 1
 		} catch {
             titleAlert = "error_message".localized
