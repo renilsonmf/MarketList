@@ -11,8 +11,9 @@ struct CustomModalEditView: View {
     @State var name: String = ""
     @State var quantity: Int = 0
     @State var showAlertDelete = false
-    var id: String
     @State var price: String
+    
+    var id: String
     var updateItem: (String, Int, Bool, String, String) -> Void
     var deleteItem: (String) -> Void
 

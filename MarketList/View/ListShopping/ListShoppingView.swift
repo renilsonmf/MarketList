@@ -46,7 +46,7 @@ struct ListShoppingView: View {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
                                                 id: item.id,
-                                                price: item.price,
+                                                price: item.price.formatPrice(),
                                                 updateItem: updateProduct,
                                                 deleteItem: deleteItemFromModal)
                         }
@@ -162,7 +162,7 @@ struct ListShoppingView: View {
                     (Float(object.price) ?? 0) * Float(object.quantity)
                 }.reduce(0, +)
 
-                result = String(totalPrice)
+                result = String(format: "%.2f", totalPrice)
             }
         } catch {
             fatalError()
@@ -243,6 +243,13 @@ struct ListShoppingView: View {
 
     func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String, price: String) {
         
+        let value = price
+            .replacingOccurrences(of: "R$", with: "")
+            .dropFirst()
+            .replacingOccurrences(of: ".", with: "")
+            .replacingOccurrences(of: ",", with: ".")
+            .replacingOccurrences(of: " ", with: ".")
+        
         do {
             let realm = try Realm()
             let itemToUpdate = realm.objects(CellProductObject.self).filter("id == %@", id).first
@@ -250,7 +257,7 @@ struct ListShoppingView: View {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
                 itemToUpdate?.isChecked = isChecked
-                itemToUpdate?.price = price
+                itemToUpdate?.price = value
                 SheetKit().dismiss()
             }
         } catch {
