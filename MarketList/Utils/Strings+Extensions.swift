@@ -19,4 +19,15 @@ extension String {
 
         return formatter.string(from: NSNumber(value: floatValue)) ?? ""
     }
+
+    func disformatString() -> String {
+        let pureNumber = self
+            .replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+
+        guard let intValue = Int(pureNumber) else { return "" }
+
+        let floatValue = Float(intValue) / 100.0
+
+        return String(floatValue)
+    }
 }

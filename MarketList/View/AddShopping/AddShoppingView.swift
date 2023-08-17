@@ -104,11 +104,6 @@ struct AddShoppingView: View {
 			object.name = productNameTextField
 			object.quantity = productQuantity
             object.price = productPriceTextField
-                .replacingOccurrences(of: "R$", with: "")
-                .dropFirst()
-                .replacingOccurrences(of: ".", with: "")
-                .replacingOccurrences(of: ",", with: ".")
-                .replacingOccurrences(of: " ", with: ".")
 
 			try realm.write {
 				realm.add(object)

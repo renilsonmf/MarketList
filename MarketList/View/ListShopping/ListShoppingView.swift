@@ -31,7 +31,7 @@ struct ListShoppingView: View {
                         name: item.name,
                         quantity: item.quantity,
                         id: item.id,
-                        price: item.price.formatPrice(),
+                        price: item.price,
                         updateItem: updateProduct
                     )
                     .onTapGesture {
@@ -45,7 +45,7 @@ struct ListShoppingView: View {
                         SheetKit().present(with: .customBottomSheet, configuration: configuration) {
                             CustomModalEditView(name: item.name,
                                                 quantity: item.quantity,
-                                                price: item.price.formatPrice(),
+                                                price: item.price,
                                                 id: item.id,
                                                 updateItem: updateProduct,
                                                 deleteItem: deleteItemFromModal)
@@ -159,7 +159,7 @@ struct ListShoppingView: View {
             let allItems = realm.objects(CellProductObject.self)
             try realm.write {
                 let totalPrice = allItems.compactMap { object in
-                    (Float(object.price) ?? 0) * Float(object.quantity)
+                    (Float(object.price.disformatString()) ?? 0) * Float(object.quantity)
                 }.reduce(0, +)
 
                 result = String(format: "%.2f", totalPrice)
@@ -242,14 +242,6 @@ struct ListShoppingView: View {
 	}
 
     func updateProduct(name: String, quantity: Int, isChecked: Bool, id: String, price: String) {
-        
-        let value = price
-            .replacingOccurrences(of: "R$", with: "")
-            .dropFirst()
-            .replacingOccurrences(of: ".", with: "")
-            .replacingOccurrences(of: ",", with: ".")
-            .replacingOccurrences(of: " ", with: ".")
-        
         do {
             let realm = try Realm()
             let itemToUpdate = realm.objects(CellProductObject.self).filter("id == %@", id).first
@@ -257,7 +249,7 @@ struct ListShoppingView: View {
                 itemToUpdate?.name = name
                 itemToUpdate?.quantity = quantity
                 itemToUpdate?.isChecked = isChecked
-                itemToUpdate?.price = value
+                itemToUpdate?.price = price
                 SheetKit().dismiss()
             }
         } catch {
