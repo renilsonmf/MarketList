@@ -29,7 +29,7 @@ struct CellProductMarketView: View {
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
                 if !price.isEmpty {
-                    Text(price.formatPrice())
+                    Text(price)
                         .fontWeight(.bold)
                         .foregroundColor(.gray)
                 }

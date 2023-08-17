@@ -31,7 +31,7 @@ struct ListShoppingView: View {
                         name: item.name,
                         quantity: item.quantity,
                         id: item.id,
-                        price: item.price,
+                        price: item.price.formatPrice(),
                         updateItem: updateProduct
                     )
                     .onTapGesture {
@@ -265,3 +265,4 @@ struct ListShoppingView: View {
         }
     }
 }
+
