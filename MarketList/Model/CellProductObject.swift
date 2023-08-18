@@ -21,7 +21,6 @@ Realm Manager
 Tirar Clojure gigante (Int, String, ....) -> Void
 Criar componente de botão
 
-v2 -
-Soma final
-Compartilhar lista
- */
+
+ Shhet ios16
+*/

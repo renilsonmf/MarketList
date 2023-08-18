@@ -106,16 +106,24 @@ struct ListShoppingView: View {
         VStack(spacing: 8) {
             HStack {
                 Text("market_list".localized)
-                    .font(Font.custom("Roboto-Bold", size: 36))
+                    .font(Font.custom("Roboto-Bold", size: 28))
                     .foregroundColor(Color.black)
 
                 Spacer()
+
+                ShareLink(item: getListForSharing(listViewModel)) {
+                    Image(systemName: "paperplane.circle.fill")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(Color.init(hex: "#7584F2"))
+                }
 
                 Button(action: showModalAddShoppingView) {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .frame(width: 32, height: 32)
                         .foregroundColor(Color.init(hex: "#7584F2"))
+                        .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 0))
                 }
             }
             .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
@@ -255,6 +263,30 @@ struct ListShoppingView: View {
         } catch {
             fatalError()
         }
+    }
+
+    private func getListForSharing(_ model: Results<CellProductObject>) -> String {
+        var result = ""
+
+        for item in model {
+            let product = item.name
+            let unity = item.quantity
+            let price = item.price
+
+            result.append(
+"""
+\(product)
+\(unity) \("unity_singular".localized)(s)
+\(price)
+
+--------------------
+
+"""
+            )
+        }
+
+        result.append("Total: \(getTotalPrice())")
+        return result
     }
 }
 
