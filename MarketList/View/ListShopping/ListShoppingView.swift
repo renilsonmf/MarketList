@@ -275,18 +275,17 @@ struct ListShoppingView: View {
 
             result.append(
 """
-\(product)
-\(unity) \("unity_singular".localized)(s)
-\(price)
-
---------------------
-
+\(product) (\(unity)) \(price)\n
 """
             )
         }
 
-        result.append("Total: \(getTotalPrice())")
+        result.append(
+"""
+-----------------
+Total: \(getTotalPrice())
+"""
+)
         return result
     }
 }
-
